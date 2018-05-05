@@ -45,7 +45,7 @@
     
     <title>
         
-            �߽�hibernate(һ) | 
+            走进hibernate(一) | 
         
         
     </title>
@@ -217,7 +217,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2018/05/05/hibernate1/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/05/05/hibernate/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="">
@@ -232,16 +232,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2018/05/05/hibernate1/">
+    <meta property="og:url" content="http://yoursite.com/2018/05/05/hibernate/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="�߽�hibernate(һ) | ">
+    <meta property="og:title" content="走进hibernate(一) | ">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="Sat May 05 2018 18:08:59 GMT+0800">
-        <meta property="article:modified_time" content="Sat May 05 2018 18:12:41 GMT+0800">
+        <meta property="article:published_time" content="Sat May 05 2018 18:39:09 GMT+0800">
+        <meta property="article:modified_time" content="Sat May 05 2018 18:39:47 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -249,7 +249,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/05/05/hibernate1/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/05/05/hibernate/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -261,10 +261,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2018/05/05/hibernate1/index.html",
-    "headline": "�߽�hibernate(һ)",
-    "datePublished": "Sat May 05 2018 18:08:59 GMT+0800",
-    "dateModified": "Sat May 05 2018 18:12:41 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/05/05/hibernate/index.html",
+    "headline": "走进hibernate(一)",
+    "datePublished": "Sat May 05 2018 18:39:09 GMT+0800",
+    "dateModified": "Sat May 05 2018 18:39:47 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "tanhoomen",
@@ -371,7 +371,7 @@
         
     
             <p class="article-headline-p">
-                �߽�hibernate(һ)
+                走进hibernate(一)
             </p>
         </div>
 
@@ -461,34 +461,34 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>##����<br>&nbsp;&nbsp;Hibernate��һ������Դ����Ķ����ϵӳ���ܣ�����JDBC�����˷ǳ��������Ķ����װ������POJO�����ݿ����ӳ���ϵ����һ��ȫ�Զ���orm��ܣ�hibernate�����Զ�����SQL��䣬�Զ�ִ�У�ʹ��Java����Ա��������������ʹ��<font color="red">������˼ά</font>���������ݿ⡣<br> &nbsp;&nbsp;Hibernate����Ӧ�����κ�ʹ��JDBC�ĳ��ϣ��ȿ�����Java�Ŀͻ��˳���ʹ�ã�Ҳ������Servlet/JSP��WebӦ����ʹ�ã���߸���������ǣ�Hibernate������Ӧ��EJB��J2EE�ܹ���ȡ��CMP��������ݳ־û������Ρ�</p>
-<p>##�����</p>
-<p>####����<br>&nbsp;&nbsp;�������������hibernate��jdbc(mysql)������ĵİ�����<br><img src="hibernate_img/hibernate1.png" alt="hibernate_img1"></p>
-<p>####�������ݿ�ͱ�</p>
+        <p>##介绍<br>&nbsp;&nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用<font color="red">对象编程思维</font>来操纵数据库。<br> &nbsp;&nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。</p>
+<p>##环境搭建</p>
+<p>####导包<br>&nbsp;&nbsp;首先最基本导入hibernate和jdbc(mysql)所必需的的包导入<br><img src="hibernate_img/hibernate1.png" alt="hibernate_img1"></p>
+<p>####创建数据库和表</p>
 <pre><code>CREATE TABLE `cst_customer` (
-      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;�ͻ����(����)&#39;,
-      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;�ͻ�����(��˾����)&#39;,
-      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ���Ϣ��Դ&#39;,
-      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ�������ҵ&#39;,
-      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ�����&#39;,
-      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;��ϵ��&#39;,
-      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;�̶��绰&#39;,
-      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;�ƶ��绰&#39;,
+      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,
+      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,
+      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户信息来源&#39;,
+      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户所属行业&#39;,
+      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户级别&#39;,
+      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;联系人&#39;,
+      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;固定电话&#39;,
+      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;移动电话&#39;,
       PRIMARY KEY (`cust_id`)
     ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-</code></pre><p>(��ʵ��������Ҳ�У�ֱ�Ӹ���beanҲ����һ�ű�,��������)<br>���ݱ���ֶδ�������Ӧbean</p>
+</code></pre><p>(其实不创建表也行，直接根据bean也导出一张表,后面再提)<br>根据表的字段创建出相应bean</p>
 <pre><code>public class Customer {
 
     /*
      * CREATE TABLE `cst_customer` (
-      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;�ͻ����(����)&#39;,
-      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;�ͻ�����(��˾����)&#39;,
-      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ���Ϣ��Դ&#39;,
-      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ�������ҵ&#39;,
-      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ�����&#39;,
-      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;��ϵ��&#39;,
-      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;�̶��绰&#39;,
-      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;�ƶ��绰&#39;,
+      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,
+      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,
+      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户信息来源&#39;,
+      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户所属行业&#39;,
+      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户级别&#39;,
+      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;联系人&#39;,
+      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;固定电话&#39;,
+      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;移动电话&#39;,
       PRIMARY KEY (`cust_id`)
     ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
      */
@@ -500,43 +500,43 @@
     private String cust_linkman;
     private String cust_phone;
     private String cust_mobile;
-    //get��set,toString��
+    //get和set,toString略
 }
-</code></pre><p>####�����ļ�������</p>
-<p>#####����xmlԼ��dtd<br>eclipse���뷽��Window=&gt;Preference=&gt;�ҵ� Xml Catalog=&gt;add=&gt;�ҵ�dtd���������<br><img src="hibernate_img/hibernate2.png" alt="hibernate_img2"></p>
-<p>#####����ӳ���ļ�<br>&nbsp;&nbsp;ʵ���౾��û�г־û���������Hibernate��Ҫ֪����Ҫ֪����ʵ����ӳ�����ݿ�Hibernate�ĸ����Լ������ĸ��ֶΣ�����Ҫӳ���ļ�������,�������ͬ���´���һ��xxx(��־û�����һ��).hbm.xml</p>
+</code></pre><p>####配置文件的配置</p>
+<p>#####导入xml约束dtd<br>eclipse导入方法Window=&gt;Preference=&gt;找到 Xml Catalog=&gt;add=&gt;找到dtd导入就行了<br><img src="hibernate_img/hibernate2.png" alt="hibernate_img2"></p>
+<p>#####创建映射文件<br>&nbsp;&nbsp;实体类本身没有持久化能力，而Hibernate需要知道需要知道该实体类映射数据库Hibernate哪个表，以及类中哪个字段，都需要映射文件中配置,在与该类同级下创建一个xxx(与持久化类名一致).hbm.xml</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE hibernate-mapping PUBLIC 
     &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
     &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
-   &lt;!-- ���ñ���ʵ�����Ĺ�ϵ --&gt;
-   &lt;!-- package����:��дһ������.��Ԫ���ڲ�������Ҫ��д��������������,����ֱ��д���������. --&gt;
+   &lt;!-- 配置表与实体对象的关系 --&gt;
+   &lt;!-- package属性:填写一个包名.在元素内部凡是需要书写完整类名的属性,可以直接写简答类名了. --&gt;
 &lt;hibernate-mapping package=&quot;com.thw.domain&quot; &gt;
     &lt;!-- 
-        classԪ��: ����ʵ�����Ķ�Ӧ��ϵ��
-            name: ��������
-            table:���ݿ����
+        class元素: 配置实体与表的对应关系的
+            name: 完整类名
+            table:数据库表名
      --&gt;
     &lt;class name=&quot;Customer&quot; table=&quot;cst_customer&quot; &gt;
-        &lt;!-- idԪ��:��������ӳ�������
-                name: ��д������Ӧ������
-                column(��ѡ): ��д���е���������.Ĭ��ֵ:������Ĭ��ʹ��������
-                type(��ѡ):��д��(����)������.hibernate���Զ����ʵ�����������.
-                        ÿ�������������: java����|hibernate����|���ݿ�����
-                not-null(��ѡ):���ø�����(��)�Ƿ���Ϊ��. Ĭ��ֵ:false
-                length(��ѡ):�������ݿ����еĳ���. Ĭ��ֵ:ʹ�����ݿ����͵���󳤶�
+        &lt;!-- id元素:配置主键映射的属性
+                name: 填写主键对应属性名
+                column(可选): 填写表中的主键列名.默认值:列名会默认使用属性名
+                type(可选):填写列(属性)的类型.hibernate会自动检测实体的属性类型.
+                        每个类型有三种填法: java类型|hibernate类型|数据库类型
+                not-null(可选):配置该属性(列)是否不能为空. 默认值:false
+                length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
          --&gt;
         &lt;id name=&quot;cust_id&quot;  &gt;
-            &lt;!-- generator:�������ɲ��� --&gt;
+            &lt;!-- generator:主键生成策略 --&gt;
             &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;
         &lt;/id&gt;
-        &lt;!-- propertyԪ��:��id֮�����ͨ����ӳ��
-                name: ��д������
-                column(��ѡ): ��д����
-                type(��ѡ):��д��(����)������.hibernate���Զ����ʵ�����������.
-                        ÿ�������������: java����|hibernate����|���ݿ�����
-                not-null(��ѡ):���ø�����(��)�Ƿ���Ϊ��. Ĭ��ֵ:false
-                length(��ѡ):�������ݿ����еĳ���. Ĭ��ֵ:ʹ�����ݿ����͵���󳤶�
+        &lt;!-- property元素:除id之外的普通属性映射
+                name: 填写属性名
+                column(可选): 填写列名
+                type(可选):填写列(属性)的类型.hibernate会自动检测实体的属性类型.
+                        每个类型有三种填法: java类型|hibernate类型|数据库类型
+                not-null(可选):配置该属性(列)是否不能为空. 默认值:false
+                length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
          --&gt;
         &lt;property name=&quot;cust_name&quot; column=&quot;cust_name&quot; &gt;
             &lt;!--  &lt;column name=&quot;cust_name&quot; sql-type=&quot;varchar&quot; &gt;&lt;/column&gt; --&gt;
@@ -549,8 +549,8 @@
         &lt;property name=&quot;cust_mobile&quot; column=&quot;cust_mobile&quot; &gt;&lt;/property&gt;
     &lt;/class&gt;
 &lt;/hibernate-mapping&gt;
-</code></pre><p>#####����Hibernate���������ļ�</p>
-<p>######Hibernateӳ���ļ���ӳ�˳־û�������ݿ��ӳ����Ϣ����Hibernate�����ļ��������ݿ����Ӻ�Hibernate����ʱ����Ҫ��������ֵ,����Ŀ��src���洴��һ��hibernate.cfg.xml</p>
+</code></pre><p>#####创建Hibernate核心配置文件</p>
+<p>######Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE hibernate-configuration PUBLIC
     &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
@@ -567,20 +567,20 @@
         #hibernate.connection.username gavin
         #hibernate.connection.password
          --&gt;
-         &lt;!-- ���ݿ����� --&gt;
+         &lt;!-- 数据库驱动 --&gt;
         &lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
-         &lt;!-- ���ݿ�url --&gt;
+         &lt;!-- 数据库url --&gt;
         &lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///xxx&lt;/property&gt;
-         &lt;!-- ���ݿ������û��� --&gt;
+         &lt;!-- 数据库连接用户名 --&gt;
         &lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;
-         &lt;!-- ���ݿ��������� --&gt;
+         &lt;!-- 数据库连接密码 --&gt;
         &lt;property name=&quot;hibernate.connection.password&quot;&gt;xxx&lt;/property&gt;
-        &lt;!-- ���ݿⷽ��
-            ��ͬ�����ݿ���,sql�﷨��������. ָ�����Կ�����hibernate���������sql���ʱ.������ݿ�ķ�������.
-            sql99��׼: DDL ��������  ������ɾ�Ĳ�
-                      DCL ��������  ���� Ȩ��
-                      DML ��������  ��ɾ�Ĳ�
-            ע��: MYSQL��ѡ����ʱ,��ѡ����̵ķ���.
+        &lt;!-- 数据库方言
+            不同的数据库中,sql语法略有区别. 指定方言可以让hibernate框架在生成sql语句时.针对数据库的方言生成.
+            sql99标准: DDL 定义语言  库表的增删改查
+                      DCL 控制语言  事务 权限
+                      DML 操纵语言  增删改查
+            注意: MYSQL在选择方言时,请选择最短的方言.
          --&gt;
         &lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5InnoDBDialect&lt;/property&gt;
 
@@ -588,26 +588,26 @@
         &lt;!-- #hibernate.show_sql true 
              #hibernate.format_sql true
         --&gt;
-        &lt;!-- ��hibernate���ɵ�sql����ӡ������̨ --&gt;
+        &lt;!-- 将hibernate生成的sql语句打印到控制台 --&gt;
         &lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
-        &lt;!-- ��hibernate���ɵ�sql����ʽ��(�﷨����) --&gt;
+        &lt;!-- 将hibernate生成的sql语句格式化(语法缩进) --&gt;
         &lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
         &lt;!-- 
-        ## auto schema export  �Զ�������ṹ. �Զ�����
-        #hibernate.hbm2ddl.auto create        �Զ�����.ÿ�ο�����ж��ᴴ���µı�.��ǰ���ᱻ����,�����ݻᶪʧ.(���������в���ʹ��)
-        #hibernate.hbm2ddl.auto create-drop �Զ�����.ÿ�ο�����н������Ὣ���б�ɾ��.(���������в���ʹ��)
-        #hibernate.hbm2ddl.auto update(�Ƽ�ʹ��) �Զ����ɱ�.����Ѿ����ڲ���������.������б䶯.�Զ����±�(����ɾ���κ�����).
-        #hibernate.hbm2ddl.auto validate    У��.���Զ����ɱ�.ÿ�����У�����ݿ��б��Ƿ���ȷ.У��ʧ��.
+        ## auto schema export  自动导出表结构. 自动建表
+        #hibernate.hbm2ddl.auto create        自动建表.每次框架运行都会创建新的表.以前表将会被覆盖,表数据会丢失.(开发环境中测试使用)
+        #hibernate.hbm2ddl.auto create-drop 自动建表.每次框架运行结束都会将所有表删除.(开发环境中测试使用)
+        #hibernate.hbm2ddl.auto update(推荐使用) 自动生成表.如果已经存在不会再生成.如果表有变动.自动更新表(不会删除任何数据).
+        #hibernate.hbm2ddl.auto validate    校验.不自动生成表.每次启动会校验数据库中表是否正确.校验失败.
          --&gt;
         &lt;property name=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/property&gt;
-        &lt;!-- ����ormԪ����
-            ·����д: ��дsrc�µ�·��
+        &lt;!-- 引入orm元数据
+            路径书写: 填写src下的路径
          --&gt;
         &lt;mapping resource=&quot;com/thw/domain/Customer.hbm.xml&quot; /&gt;
 
     &lt;/session-factory&gt;
 &lt;/hibernate-configuration&gt;
-</code></pre><p>##����</p>
+</code></pre><p>##测试</p>
 <pre><code>import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -618,23 +618,23 @@ import com.thw.domain.Customer;
 
 public class hibernateTest {
     @Test
-    //����ͻ�
+    //保存客户
     public void fun1(){
-            //��,����������Ϣ,Configuration conf = new Configuration().configure()ΪĬ��ȥsrc�����ҵ�hibernate.cfg.xml����Ҳ�����Զ��� Configuration().configure(&quot;�ļ�·��&quot;)����.
+            //启动,加载配置信息,Configuration conf = new Configuration().configure()为默认去src下面找到hibernate.cfg.xml加载也可以自定义 Configuration().configure(&quot;文件路径&quot;)加载.
 
         Configuration conf = new Configuration().configure();
 
-        //����һ��SessionFactory����
+        //创建一个SessionFactory工厂
         SessionFactory sessionFactory = conf.buildSessionFactory();
-        //���Sessionʵ��
+        //获得Session实例
         Session session = sessionFactory.openSession();
-        //�������
+        //事务操作
         Transaction tx = session.beginTransaction();
         //----------------------------------------------
         Customer c = new Customer();
-        c.setCust_name(&quot;google��˾&quot;);
+        c.setCust_name(&quot;google公司&quot;);
 
-        session.save(c);//ִ�б���
+        session.save(c);//执行保存
 
         //----------------------------------------------
         tx.commit();
@@ -642,7 +642,7 @@ public class hibernateTest {
         sessionFactory.close();
     }
     @Test
-    //���ҿͻ�
+    //查找客户
     public void fun2(){
         Configuration conf = new Configuration().configure();
 
@@ -661,7 +661,7 @@ public class hibernateTest {
         sessionFactory.close();
     }
     @Test
-    //���¿ͻ�
+    //更新客户
     public void fun3(){
         Configuration conf = new Configuration().configure();
 
@@ -673,7 +673,7 @@ public class hibernateTest {
         //----------------------------------------------
 
         Customer customer = session.get(Customer.class, 1L);
-        customer.setCust_name(&quot;�ٶȹ�˾&quot;);
+        customer.setCust_name(&quot;百度公司&quot;);
         session.update(customer);
 
         //----------------------------------------------
@@ -683,7 +683,7 @@ public class hibernateTest {
         System.out.println(customer);
     }
     @Test
-    //ɾ���ͻ�
+    //删除客户
     public void fun4(){
         Configuration conf = new Configuration().configure();
 
@@ -704,39 +704,39 @@ public class hibernateTest {
         System.out.println(customer);
     }
 }
-</code></pre><p>##һЩ���ʽ���</p>
-<p>######SessionFactory:Session��������<br>&nbsp;&nbsp;SessionFactory����Hibernate��ʼ���ͽ���Session����,���䵱���ݴ�����������𴴽�Session���󡣴������˹��̶���ģʽ��<font color="red">��ע����ǣ�SessionFactory������һ����������</font>��һ�������һ����Ŀ��ֻ��Ҫһ��SessionFactory������Ҫ����������ݿ�ʱ������Ϊÿ�����ݿ�ָ��һ��SessionFactory��<br><br>&nbsp;&nbsp;SessionFactory��Hibernate������һ���������ã�Hibernate�����Զ�����SQL��䣬ӳ�����ݺ�ĳЩ���ظ����õ����ݷ��������������ͬʱ�����������ݿ���������ӳ���ϵ��ά����ǰ�������档<br><br>&nbsp;&nbsp;SessionFactory���������ص㣺</p>
+</code></pre><p>##一些名词解释</p>
+<p>######SessionFactory:Session工厂对象<br>&nbsp;&nbsp;SessionFactory负责Hibernate初始化和建立Session对象,它充当数据储存代理，并负责创建Session对象。创建用了工程对象模式。<font color="red">需注意的是，SessionFactory并不是一个轻量级的</font>，一般情况下一个项目下只需要一个SessionFactory，当需要操作多个数据库时，可以为每个数据库指定一个SessionFactory。<br><br>&nbsp;&nbsp;SessionFactory在Hibernate中起了一个缓冲作用，Hibernate可以自动生成SQL语句，映射数据和某些可重复利用的数据放在这个缓冲区。同时它还保存数据库配置所有映射关系，维护当前二级缓存。<br><br>&nbsp;&nbsp;SessionFactory具有以下特点：</p>
 <ul>
-<li>�����̰߳�ȫ</li>
-<li><p>����������<br>SessionFactoryά����һ�����ӳ�,��ʹ�õ��������ӳ�C3P0,��ô��Ҫ�ֶ�����</p>
-<pre><code>&lt;!--����C3P0--&gt;
+<li>它是线程安全</li>
+<li><p>它是重量级<br>SessionFactory维护着一个连接池,若使用第三方连接池C3P0,那么需要手动配置</p>
+<pre><code>&lt;!--配置C3P0--&gt;
 &lt;property name=&quot;hibernate.connection.provider_class&quot;&gt;org.hibernate.connection.C3P0ConnectionProvider&lt;/property&gt;
-&lt;!--���ӳؿ������ݿ����������--&gt;
+&lt;!--连接池可用数据库连接最大数--&gt;
 &lt;property name=&quot;hibernate.c3p0.max_size&quot;&gt;20&lt;/property&gt;
-&lt;!--���ӳؿ������ݿ�������С��--&gt;
+&lt;!--连接池可用数据库连接最小数--&gt;
 &lt;property name=&quot;hibernate.c3p0.min_size&quot;&gt;5&lt;/property&gt;
-&lt;!--���ӹ���ʱ��--&gt;
+&lt;!--连接过期时间--&gt;
 &lt;property name=&quot;hibernate.c3p0.timeout&quot;&gt;120&lt;/property&gt;
-&lt;!--ÿ3000sȥ����������--&gt;
+&lt;!--每3000s去检查空闲连接--&gt;
 &lt;property name=&quot;hibernate.c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
-</code></pre><p>######Session<br>&nbsp;&nbsp;Session����ִ�б��־û������CRUD�������ò�����������ݿ�Ľ������������sql��䣩,ֻ����Session�����¿��Խ��г־û�����,�������ַ�ʽ����ʵ��:</p>
+</code></pre><p>######Session<br>&nbsp;&nbsp;Session负责执行被持久化对象的CRUD操作（该操作完成与数据库的交流，包含许多sql语句）,只有在Session管理下可以进行持久化操作,它有两种方式创建实例:</p>
 </li>
 <li><p>Session session = sessionFactory.openSession();</p>
 </li>
 <li>Session session = sessionFactory.getCurrentSession();</li>
 </ul>
-<p>&nbsp;&nbsp;openSession���ȡһ��SessionFactory������Sessionʵ������Ҫ�ֶ�����close()�ر�,��getCurrentSession������Sessionʵ������ڵ�ǰ�̣߳��ύ��ع������Զ��رա�<br><br>&nbsp;&nbsp;Session�������̰߳�ȫ����������߳�ͬʱ����һ��Sessionʵ�������ܵ���Session(�����ڲ�����Ͳ����������)������Ӧ�ñ�����̹߳���Sessionʵ�����������Ĵ��������ٲ�����Ҫ����̫����Դ�������и�һ���棬��Hibernateһ�����棬���������Ҫ��ŵ�ǰ������Ԫ���صĶ���<br>session�ṩ�˴�������</p>
+<p>&nbsp;&nbsp;openSession会获取一个SessionFactory创建的Session实例，需要手动调用close()关闭,而getCurrentSession创建的Session实例会绑定在当前线程，提交或回滚事务自动关闭。<br><br>&nbsp;&nbsp;Session并不是线程安全，多个并发线程同时操作一个Session实例，可能导致Session(方法内部定义就不会出现问题)，所以应该避免多线程共享Session实例，而且它的创建与销毁并不需要消耗太多资源。它还有个一缓存，即Hibernate一级缓存，这个缓存主要存放当前工作单元加载的对象。<br>session提供了大量方法</p>
 <ul>
-<li>save(),update(),��saveOrUpdate()�������������Ӻ��޸Ķ���</li>
-<li>delete()ɾ������</li>
-<li>get()��load()������������ѯ</li>
-<li>createQuery()��creatSQLQuery()���ݿ��������</li>
-<li>createCriteria()������ѯ</li>
+<li>save(),update(),和saveOrUpdate()方法，用于增加和修改对象</li>
+<li>delete()删除对象</li>
+<li>get()和load()，根据主键查询</li>
+<li>createQuery()和creatSQLQuery()数据库操作对象</li>
+<li>createCriteria()条件查询</li>
 </ul>
-<p>######Transaction<br>&nbsp;&nbsp;���ڹ�����������������������</p>
+<p>######Transaction<br>&nbsp;&nbsp;用于管理事务，它常用有两个方法</p>
 <ul>
-<li>commit(),�ύsessionʵ��</li>
-<li>rollback(),�����������</li>
+<li>commit(),提交session实例</li>
+<li>rollback(),撤销事务操作</li>
 </ul>
 
         
