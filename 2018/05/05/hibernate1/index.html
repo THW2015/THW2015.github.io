@@ -217,7 +217,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2018/05/05/hibernate/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/05/05/hibernate1/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="">
@@ -232,7 +232,7 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2018/05/05/hibernate/">
+    <meta property="og:url" content="http://yoursite.com/2018/05/05/hibernate1/">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="走进hibernate(一) | ">
     <meta property="og:image" content="/img/favicon.png">
@@ -241,7 +241,7 @@
 
     
         <meta property="article:published_time" content="Sat May 05 2018 18:39:09 GMT+0800">
-        <meta property="article:modified_time" content="Sat May 05 2018 18:39:47 GMT+0800">
+        <meta property="article:modified_time" content="Sat May 05 2018 18:43:27 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -249,7 +249,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/05/05/hibernate/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/05/05/hibernate1/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -261,10 +261,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2018/05/05/hibernate/index.html",
+    "mainEntityOfPage": "http://yoursite.com/2018/05/05/hibernate1/index.html",
     "headline": "走进hibernate(一)",
     "datePublished": "Sat May 05 2018 18:39:09 GMT+0800",
-    "dateModified": "Sat May 05 2018 18:39:47 GMT+0800",
+    "dateModified": "Sat May 05 2018 18:43:27 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "tanhoomen",
@@ -506,13 +506,13 @@
 <p>#####导入xml约束dtd<br>eclipse导入方法Window=&gt;Preference=&gt;找到 Xml Catalog=&gt;add=&gt;找到dtd导入就行了<br><img src="hibernate_img/hibernate2.png" alt="hibernate_img2"></p>
 <p>#####创建映射文件<br>&nbsp;&nbsp;实体类本身没有持久化能力，而Hibernate需要知道需要知道该实体类映射数据库Hibernate哪个表，以及类中哪个字段，都需要映射文件中配置,在与该类同级下创建一个xxx(与持久化类名一致).hbm.xml</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE hibernate-mapping PUBLIC 
+&lt;!DOCTYPE hibernate-mapping PUBLIC
     &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
     &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
    &lt;!-- 配置表与实体对象的关系 --&gt;
    &lt;!-- package属性:填写一个包名.在元素内部凡是需要书写完整类名的属性,可以直接写简答类名了. --&gt;
 &lt;hibernate-mapping package=&quot;com.thw.domain&quot; &gt;
-    &lt;!-- 
+    &lt;!--
         class元素: 配置实体与表的对应关系的
             name: 完整类名
             table:数据库表名
@@ -558,7 +558,7 @@
 &lt;hibernate-configuration&gt;
     &lt;session-factory&gt;
 
-        &lt;!-- 
+        &lt;!--
         #hibernate.dialect org.hibernate.dialect.MySQLDialect
         #hibernate.dialect org.hibernate.dialect.MySQLInnoDBDialect
         #hibernate.dialect org.hibernate.dialect.MySQLMyISAMDialect
@@ -585,14 +585,14 @@
         &lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5InnoDBDialect&lt;/property&gt;
 
 
-        &lt;!-- #hibernate.show_sql true 
+        &lt;!-- #hibernate.show_sql true
              #hibernate.format_sql true
         --&gt;
         &lt;!-- 将hibernate生成的sql语句打印到控制台 --&gt;
         &lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
         &lt;!-- 将hibernate生成的sql语句格式化(语法缩进) --&gt;
         &lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
-        &lt;!-- 
+        &lt;!--
         ## auto schema export  自动导出表结构. 自动建表
         #hibernate.hbm2ddl.auto create        自动建表.每次框架运行都会创建新的表.以前表将会被覆盖,表数据会丢失.(开发环境中测试使用)
         #hibernate.hbm2ddl.auto create-drop 自动建表.每次框架运行结束都会将所有表删除.(开发环境中测试使用)
