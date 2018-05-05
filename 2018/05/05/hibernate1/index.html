@@ -45,8 +45,6 @@
     
     <title>
         
-            First Blog | 
-        
         
     </title>
 
@@ -217,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2018/05/04/First-blog/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/05/05/hibernate1/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="">
@@ -232,16 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2018/05/04/First-blog/">
+    <meta property="og:url" content="http://yoursite.com/2018/05/05/hibernate1/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="First Blog | ">
+    <meta property="og:title" content="">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="Fri May 04 2018 19:24:25 GMT+0800">
-        <meta property="article:modified_time" content="Fri May 04 2018 20:03:10 GMT+0800">
+        <meta property="article:published_time" content="Sat May 05 2018 18:08:59 GMT+0800">
+        <meta property="article:modified_time" content="Sat May 05 2018 18:09:21 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -249,7 +247,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/05/04/First-blog/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/05/05/hibernate1/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -261,10 +259,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2018/05/04/First-blog/index.html",
-    "headline": "First Blog",
-    "datePublished": "Fri May 04 2018 19:24:25 GMT+0800",
-    "dateModified": "Fri May 04 2018 20:03:10 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/05/05/hibernate1/index.html",
+    "headline": "",
+    "datePublished": "Sat May 05 2018 18:08:59 GMT+0800",
+    "dateModified": "Sat May 05 2018 18:09:21 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "tanhoomen",
@@ -342,6 +340,15 @@
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-�߽�hibernate-һ"><span class="post-toc-number">1.</span> <span class="post-toc-text">title:�߽�hibernate(һ)</span></a></li></ol>
+    </ul>
+    
 
 
 
@@ -371,7 +378,7 @@
         
     
             <p class="article-headline-p">
-                First Blog
+                
             </p>
         </div>
 
@@ -390,7 +397,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>tanhoomen</strong>
-        <span>5月 04, 2018</span>
+        <span>5月 05, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -461,7 +468,285 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <hr>
+<h2 id="title-�߽�hibernate-һ"><a href="#title-�߽�hibernate-һ" class="headerlink" title="title:�߽�hibernate(һ)"></a>title:�߽�hibernate(һ)</h2><p>##����<br>&nbsp;&nbsp;Hibernate��һ������Դ����Ķ����ϵӳ���ܣ�����JDBC�����˷ǳ��������Ķ����װ������POJO�����ݿ����ӳ���ϵ����һ��ȫ�Զ���orm��ܣ�hibernate�����Զ�����SQL��䣬�Զ�ִ�У�ʹ��Java����Ա��������������ʹ��<font color="red">������˼ά</font>���������ݿ⡣<br> &nbsp;&nbsp;Hibernate����Ӧ�����κ�ʹ��JDBC�ĳ��ϣ��ȿ�����Java�Ŀͻ��˳���ʹ�ã�Ҳ������Servlet/JSP��WebӦ����ʹ�ã���߸���������ǣ�Hibernate������Ӧ��EJB��J2EE�ܹ���ȡ��CMP��������ݳ־û������Ρ�</p>
+<p>##�����</p>
+<p>####����<br>&nbsp;&nbsp;�������������hibernate��jdbc(mysql)������ĵİ�����<br><img src="hibernate_img/hibernate1.png" alt="hibernate_img1"></p>
+<p>####�������ݿ�ͱ�</p>
+<pre><code>CREATE TABLE `cst_customer` (
+      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;�ͻ����(����)&#39;,
+      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;�ͻ�����(��˾����)&#39;,
+      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ���Ϣ��Դ&#39;,
+      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ�������ҵ&#39;,
+      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ�����&#39;,
+      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;��ϵ��&#39;,
+      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;�̶��绰&#39;,
+      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;�ƶ��绰&#39;,
+      PRIMARY KEY (`cust_id`)
+    ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+</code></pre><p>(��ʵ��������Ҳ�У�ֱ�Ӹ���beanҲ����һ�ű�,��������)<br>���ݱ���ֶδ�������Ӧbean</p>
+<pre><code>public class Customer {
+
+    /*
+     * CREATE TABLE `cst_customer` (
+      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;�ͻ����(����)&#39;,
+      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;�ͻ�����(��˾����)&#39;,
+      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ���Ϣ��Դ&#39;,
+      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ�������ҵ&#39;,
+      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;�ͻ�����&#39;,
+      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;��ϵ��&#39;,
+      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;�̶��绰&#39;,
+      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;�ƶ��绰&#39;,
+      PRIMARY KEY (`cust_id`)
+    ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+     */
+    private Long cust_id;
+    private String cust_name;
+    private String cust_source;
+    private String cust_industry;
+    private String cust_level;
+    private String cust_linkman;
+    private String cust_phone;
+    private String cust_mobile;
+    //get��set,toString��
+}
+</code></pre><p>####�����ļ�������</p>
+<p>#####����xmlԼ��dtd<br>eclipse���뷽��Window=&gt;Preference=&gt;�ҵ� Xml Catalog=&gt;add=&gt;�ҵ�dtd���������<br><img src="hibernate_img/hibernate2.png" alt="hibernate_img2"></p>
+<p>#####����ӳ���ļ�<br>&nbsp;&nbsp;ʵ���౾��û�г־û���������Hibernate��Ҫ֪����Ҫ֪����ʵ����ӳ�����ݿ�Hibernate�ĸ����Լ������ĸ��ֶΣ�����Ҫӳ���ļ�������,�������ͬ���´���һ��xxx(��־û�����һ��).hbm.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+   &lt;!-- ���ñ���ʵ�����Ĺ�ϵ --&gt;
+   &lt;!-- package����:��дһ������.��Ԫ���ڲ�������Ҫ��д��������������,����ֱ��д���������. --&gt;
+&lt;hibernate-mapping package=&quot;com.thw.domain&quot; &gt;
+    &lt;!-- 
+        classԪ��: ����ʵ�����Ķ�Ӧ��ϵ��
+            name: ��������
+            table:���ݿ����
+     --&gt;
+    &lt;class name=&quot;Customer&quot; table=&quot;cst_customer&quot; &gt;
+        &lt;!-- idԪ��:��������ӳ�������
+                name: ��д������Ӧ������
+                column(��ѡ): ��д���е���������.Ĭ��ֵ:������Ĭ��ʹ��������
+                type(��ѡ):��д��(����)������.hibernate���Զ����ʵ�����������.
+                        ÿ�������������: java����|hibernate����|���ݿ�����
+                not-null(��ѡ):���ø�����(��)�Ƿ���Ϊ��. Ĭ��ֵ:false
+                length(��ѡ):�������ݿ����еĳ���. Ĭ��ֵ:ʹ�����ݿ����͵���󳤶�
+         --&gt;
+        &lt;id name=&quot;cust_id&quot;  &gt;
+            &lt;!-- generator:�������ɲ��� --&gt;
+            &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;
+        &lt;/id&gt;
+        &lt;!-- propertyԪ��:��id֮�����ͨ����ӳ��
+                name: ��д������
+                column(��ѡ): ��д����
+                type(��ѡ):��д��(����)������.hibernate���Զ����ʵ�����������.
+                        ÿ�������������: java����|hibernate����|���ݿ�����
+                not-null(��ѡ):���ø�����(��)�Ƿ���Ϊ��. Ĭ��ֵ:false
+                length(��ѡ):�������ݿ����еĳ���. Ĭ��ֵ:ʹ�����ݿ����͵���󳤶�
+         --&gt;
+        &lt;property name=&quot;cust_name&quot; column=&quot;cust_name&quot; &gt;
+            &lt;!--  &lt;column name=&quot;cust_name&quot; sql-type=&quot;varchar&quot; &gt;&lt;/column&gt; --&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;cust_source&quot; column=&quot;cust_source&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_industry&quot; column=&quot;cust_industry&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_level&quot; column=&quot;cust_level&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_linkman&quot; column=&quot;cust_linkman&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_phone&quot; column=&quot;cust_phone&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_mobile&quot; column=&quot;cust_mobile&quot; &gt;&lt;/property&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre><p>#####����Hibernate���������ļ�</p>
+<p>######Hibernateӳ���ļ���ӳ�˳־û�������ݿ��ӳ����Ϣ����Hibernate�����ļ��������ݿ����Ӻ�Hibernate����ʱ����Ҫ��������ֵ,����Ŀ��src���洴��һ��hibernate.cfg.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC
+    &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;
+&lt;hibernate-configuration&gt;
+    &lt;session-factory&gt;
+
+        &lt;!-- 
+        #hibernate.dialect org.hibernate.dialect.MySQLDialect
+        #hibernate.dialect org.hibernate.dialect.MySQLInnoDBDialect
+        #hibernate.dialect org.hibernate.dialect.MySQLMyISAMDialect
+        #hibernate.connection.driver_class com.mysql.jdbc.Driver
+        #hibernate.connection.url jdbc:mysql:///test
+        #hibernate.connection.username gavin
+        #hibernate.connection.password
+         --&gt;
+         &lt;!-- ���ݿ����� --&gt;
+        &lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
+         &lt;!-- ���ݿ�url --&gt;
+        &lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///xxx&lt;/property&gt;
+         &lt;!-- ���ݿ������û��� --&gt;
+        &lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;
+         &lt;!-- ���ݿ��������� --&gt;
+        &lt;property name=&quot;hibernate.connection.password&quot;&gt;xxx&lt;/property&gt;
+        &lt;!-- ���ݿⷽ��
+            ��ͬ�����ݿ���,sql�﷨��������. ָ�����Կ�����hibernate���������sql���ʱ.������ݿ�ķ�������.
+            sql99��׼: DDL ��������  ������ɾ�Ĳ�
+                      DCL ��������  ���� Ȩ��
+                      DML ��������  ��ɾ�Ĳ�
+            ע��: MYSQL��ѡ����ʱ,��ѡ����̵ķ���.
+         --&gt;
+        &lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5InnoDBDialect&lt;/property&gt;
+
+
+        &lt;!-- #hibernate.show_sql true 
+             #hibernate.format_sql true
+        --&gt;
+        &lt;!-- ��hibernate���ɵ�sql����ӡ������̨ --&gt;
+        &lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
+        &lt;!-- ��hibernate���ɵ�sql����ʽ��(�﷨����) --&gt;
+        &lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
+        &lt;!-- 
+        ## auto schema export  �Զ�������ṹ. �Զ�����
+        #hibernate.hbm2ddl.auto create        �Զ�����.ÿ�ο�����ж��ᴴ���µı�.��ǰ���ᱻ����,�����ݻᶪʧ.(���������в���ʹ��)
+        #hibernate.hbm2ddl.auto create-drop �Զ�����.ÿ�ο�����н������Ὣ���б�ɾ��.(���������в���ʹ��)
+        #hibernate.hbm2ddl.auto update(�Ƽ�ʹ��) �Զ����ɱ�.����Ѿ����ڲ���������.������б䶯.�Զ����±�(����ɾ���κ�����).
+        #hibernate.hbm2ddl.auto validate    У��.���Զ����ɱ�.ÿ�����У�����ݿ��б��Ƿ���ȷ.У��ʧ��.
+         --&gt;
+        &lt;property name=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/property&gt;
+        &lt;!-- ����ormԪ����
+            ·����д: ��дsrc�µ�·��
+         --&gt;
+        &lt;mapping resource=&quot;com/thw/domain/Customer.hbm.xml&quot; /&gt;
+
+    &lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+</code></pre><p>##����</p>
+<pre><code>import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.junit.Test;
+
+import com.thw.domain.Customer;
+
+public class hibernateTest {
+    @Test
+    //����ͻ�
+    public void fun1(){
+            //��,����������Ϣ,Configuration conf = new Configuration().configure()ΪĬ��ȥsrc�����ҵ�hibernate.cfg.xml����Ҳ�����Զ��� Configuration().configure(&quot;�ļ�·��&quot;)����.
+
+        Configuration conf = new Configuration().configure();
+
+        //����һ��SessionFactory����
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+        //���Sessionʵ��
+        Session session = sessionFactory.openSession();
+        //�������
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+        Customer c = new Customer();
+        c.setCust_name(&quot;google��˾&quot;);
+
+        session.save(c);//ִ�б���
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+    }
+    @Test
+    //���ҿͻ�
+    public void fun2(){
+        Configuration conf = new Configuration().configure();
+
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+        Customer customer = session.get(Customer.class, 1L);
+        System.out.println(customer);
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+    }
+    @Test
+    //���¿ͻ�
+    public void fun3(){
+        Configuration conf = new Configuration().configure();
+
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+
+        Customer customer = session.get(Customer.class, 1L);
+        customer.setCust_name(&quot;�ٶȹ�˾&quot;);
+        session.update(customer);
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+        System.out.println(customer);
+    }
+    @Test
+    //ɾ���ͻ�
+    public void fun4(){
+        Configuration conf = new Configuration().configure();
+
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+
+        Customer customer = session.get(Customer.class, 1L);
+        session.delete(customer);
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+        System.out.println(customer);
+    }
+}
+</code></pre><p>##һЩ���ʽ���</p>
+<p>######SessionFactory:Session��������<br>&nbsp;&nbsp;SessionFactory����Hibernate��ʼ���ͽ���Session����,���䵱���ݴ�����������𴴽�Session���󡣴������˹��̶���ģʽ��<font color="red">��ע����ǣ�SessionFactory������һ����������</font>��һ�������һ����Ŀ��ֻ��Ҫһ��SessionFactory������Ҫ����������ݿ�ʱ������Ϊÿ�����ݿ�ָ��һ��SessionFactory��<br><br>&nbsp;&nbsp;SessionFactory��Hibernate������һ���������ã�Hibernate�����Զ�����SQL��䣬ӳ�����ݺ�ĳЩ���ظ����õ����ݷ��������������ͬʱ�����������ݿ���������ӳ���ϵ��ά����ǰ�������档<br><br>&nbsp;&nbsp;SessionFactory���������ص㣺</p>
+<ul>
+<li>�����̰߳�ȫ</li>
+<li><p>����������<br>SessionFactoryά����һ�����ӳ�,��ʹ�õ��������ӳ�C3P0,��ô��Ҫ�ֶ�����</p>
+<pre><code>&lt;!--����C3P0--&gt;
+&lt;property name=&quot;hibernate.connection.provider_class&quot;&gt;org.hibernate.connection.C3P0ConnectionProvider&lt;/property&gt;
+&lt;!--���ӳؿ������ݿ����������--&gt;
+&lt;property name=&quot;hibernate.c3p0.max_size&quot;&gt;20&lt;/property&gt;
+&lt;!--���ӳؿ������ݿ�������С��--&gt;
+&lt;property name=&quot;hibernate.c3p0.min_size&quot;&gt;5&lt;/property&gt;
+&lt;!--���ӹ���ʱ��--&gt;
+&lt;property name=&quot;hibernate.c3p0.timeout&quot;&gt;120&lt;/property&gt;
+&lt;!--ÿ3000sȥ����������--&gt;
+&lt;property name=&quot;hibernate.c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
+</code></pre><p>######Session<br>&nbsp;&nbsp;Session����ִ�б��־û������CRUD�������ò�����������ݿ�Ľ������������sql��䣩,ֻ����Session�����¿��Խ��г־û�����,�������ַ�ʽ����ʵ��:</p>
+</li>
+<li><p>Session session = sessionFactory.openSession();</p>
+</li>
+<li>Session session = sessionFactory.getCurrentSession();</li>
+</ul>
+<p>&nbsp;&nbsp;openSession���ȡһ��SessionFactory������Sessionʵ������Ҫ�ֶ�����close()�ر�,��getCurrentSession������Sessionʵ������ڵ�ǰ�̣߳��ύ��ع������Զ��رա�<br><br>&nbsp;&nbsp;Session�������̰߳�ȫ����������߳�ͬʱ����һ��Sessionʵ�������ܵ���Session(�����ڲ�����Ͳ����������)������Ӧ�ñ�����̹߳���Sessionʵ�����������Ĵ��������ٲ�����Ҫ����̫����Դ�������и�һ���棬��Hibernateһ�����棬���������Ҫ��ŵ�ǰ������Ԫ���صĶ���<br>session�ṩ�˴�������</p>
+<ul>
+<li>save(),update(),��saveOrUpdate()�������������Ӻ��޸Ķ���</li>
+<li>delete()ɾ������</li>
+<li>get()��load()������������ѯ</li>
+<li>createQuery()��creatSQLQuery()���ݿ��������</li>
+<li>createCriteria()������ѯ</li>
+</ul>
+<p>######Transaction<br>&nbsp;&nbsp;���ڹ�����������������������</p>
+<ul>
+<li>commit(),�ύsessionʵ��</li>
+<li>rollback(),�����������</li>
+</ul>
+
         
     
 
@@ -592,6 +877,16 @@
     
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章總數
+                <span class="sidebar-badge">2</span>
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
     
 </ul>
 
