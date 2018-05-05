@@ -45,7 +45,7 @@
     
     <title>
         
-            走进hibernate(一) | 
+            走进Hibernate(一) | 
         
         
     </title>
@@ -217,7 +217,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2018/05/05/hibernate1/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/05/05/Hibernate1/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="">
@@ -232,16 +232,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2018/05/05/hibernate1/">
+    <meta property="og:url" content="http://yoursite.com/2018/05/05/Hibernate1/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="走进hibernate(一) | ">
+    <meta property="og:title" content="走进Hibernate(一) | ">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="Sat May 05 2018 18:39:09 GMT+0800">
-        <meta property="article:modified_time" content="Sat May 05 2018 18:57:04 GMT+0800">
+        <meta property="article:published_time" content="Sat May 05 2018 19:19:04 GMT+0800">
+        <meta property="article:modified_time" content="Sat May 05 2018 19:20:05 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -249,7 +249,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/05/05/hibernate1/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/05/05/Hibernate1/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -261,10 +261,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2018/05/05/hibernate1/index.html",
-    "headline": "走进hibernate(一)",
-    "datePublished": "Sat May 05 2018 18:39:09 GMT+0800",
-    "dateModified": "Sat May 05 2018 18:57:04 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/05/05/Hibernate1/index.html",
+    "headline": "走进Hibernate(一)",
+    "datePublished": "Sat May 05 2018 19:19:04 GMT+0800",
+    "dateModified": "Sat May 05 2018 19:20:05 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "tanhoomen",
@@ -348,7 +348,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境搭建"><span class="post-toc-number">2.</span> <span class="post-toc-text">环境搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#导包"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">导包</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建数据库和表"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">创建数据库和表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置文件的配置"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">配置文件的配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#导入xml约束dtd"><span class="post-toc-number">2.0.3.1.</span> <span class="post-toc-text">导入xml约束dtd</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建映射文件"><span class="post-toc-number">2.0.3.2.</span> <span class="post-toc-text">创建映射文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建Hibernate核心配置文件"><span class="post-toc-number">2.0.3.3.</span> <span class="post-toc-text">创建Hibernate核心配置文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值-在项目的src下面创建一个hibernate-cfg-xml"><span class="post-toc-number">2.0.3.3.1.</span> <span class="post-toc-text">Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试"><span class="post-toc-number">3.</span> <span class="post-toc-text">测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些名词解释"><span class="post-toc-number">4.</span> <span class="post-toc-text">一些名词解释</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#SessionFactory-Session工厂对象"><span class="post-toc-number">4.0.0.0.1.</span> <span class="post-toc-text">SessionFactory:Session工厂对象</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Session"><span class="post-toc-number">4.0.0.0.2.</span> <span class="post-toc-text">Session</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Transaction"><span class="post-toc-number">4.0.0.0.3.</span> <span class="post-toc-text">Transaction</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tags-java"><span class="post-toc-number">1.</span> <span class="post-toc-text">tags:java</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境搭建"><span class="post-toc-number">3.</span> <span class="post-toc-text">环境搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#导包"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">导包</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建数据库和表"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">创建数据库和表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置文件的配置"><span class="post-toc-number">3.0.3.</span> <span class="post-toc-text">配置文件的配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#导入xml约束dtd"><span class="post-toc-number">3.0.3.1.</span> <span class="post-toc-text">导入xml约束dtd</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建映射文件"><span class="post-toc-number">3.0.3.2.</span> <span class="post-toc-text">创建映射文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建Hibernate核心配置文件"><span class="post-toc-number">3.0.3.3.</span> <span class="post-toc-text">创建Hibernate核心配置文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值-在项目的src下面创建一个hibernate-cfg-xml"><span class="post-toc-number">3.0.3.3.1.</span> <span class="post-toc-text">Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试"><span class="post-toc-number">4.</span> <span class="post-toc-text">测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些名词解释"><span class="post-toc-number">5.</span> <span class="post-toc-text">一些名词解释</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#SessionFactory-Session工厂对象"><span class="post-toc-number">5.0.0.0.1.</span> <span class="post-toc-text">SessionFactory:Session工厂对象</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Session"><span class="post-toc-number">5.0.0.0.2.</span> <span class="post-toc-text">Session</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Transaction"><span class="post-toc-number">5.0.0.0.3.</span> <span class="post-toc-text">Transaction</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
     </ul>
     
 
@@ -380,7 +380,7 @@
         
     
             <p class="article-headline-p">
-                走进hibernate(一)
+                走进Hibernate(一)
             </p>
         </div>
 
@@ -470,8 +470,10 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>&nbsp;&nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用<font color="red">对象编程思维</font>来操纵数据库。<br> &nbsp;&nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><p>&nbsp;&nbsp;首先最基本导入hibernate和jdbc(mysql)所必需的的包导入<br><img src="hibernate_img/hibernate1.png" alt="hibernate_img1"></p>
+        <hr>
+<p>title: 走进Hibernate(一)<br>date: 2018-05-05 19:11:19</p>
+<h2 id="tags-java"><a href="#tags-java" class="headerlink" title="tags:java"></a>tags:java</h2><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>&nbsp;&nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用<font color="red">对象编程思维</font>来操纵数据库。<br> &nbsp;&nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><p>&nbsp;&nbsp;首先最基本导入hibernate和jdbc(mysql)所必需的的包导入<br><img src="/2018/05/05/Hibernate1/hibernate1.png" alt="hibernate_img1"></p>
 <h4 id="创建数据库和表"><a href="#创建数据库和表" class="headerlink" title="创建数据库和表"></a>创建数据库和表</h4><pre><code>CREATE TABLE `cst_customer` (
       `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,
       `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,
@@ -509,7 +511,7 @@
     private String cust_mobile;
     //get和set,toString略
 }
-</code></pre><h4 id="配置文件的配置"><a href="#配置文件的配置" class="headerlink" title="配置文件的配置"></a>配置文件的配置</h4><h5 id="导入xml约束dtd"><a href="#导入xml约束dtd" class="headerlink" title="导入xml约束dtd"></a>导入xml约束dtd</h5><p>eclipse导入方法Window=&gt;Preference=&gt;找到 Xml Catalog=&gt;add=&gt;找到dtd导入就行了<br><img src="hibernate_img/hibernate2.png" alt="hibernate_img2"></p>
+</code></pre><h4 id="配置文件的配置"><a href="#配置文件的配置" class="headerlink" title="配置文件的配置"></a>配置文件的配置</h4><h5 id="导入xml约束dtd"><a href="#导入xml约束dtd" class="headerlink" title="导入xml约束dtd"></a>导入xml约束dtd</h5><p>eclipse导入方法Window=&gt;Preference=&gt;找到 Xml Catalog=&gt;add=&gt;找到dtd导入就行了<br><img src="/2018/05/05/Hibernate1/hibernate2.png" alt="hibernate_img2"></p>
 <h5 id="创建映射文件"><a href="#创建映射文件" class="headerlink" title="创建映射文件"></a>创建映射文件</h5><p>&nbsp;&nbsp;实体类本身没有持久化能力，而Hibernate需要知道需要知道该实体类映射数据库Hibernate哪个表，以及类中哪个字段，都需要映射文件中配置,在与该类同级下创建一个xxx(与持久化类名一致).hbm.xml</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE hibernate-mapping PUBLIC
