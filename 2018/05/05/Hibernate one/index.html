@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="介绍&amp;nbsp;&amp;nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 &amp;nbsp;&amp;nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hibernate one">
+<meta property="og:url" content="http://yoursite.com/2018/05/05/Hibernate one/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="介绍&amp;nbsp;&amp;nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 &amp;nbsp;&amp;nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/05/05/Hibernate%20one/hibernate1.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/05/Hibernate%20one/hibernate2.png">
+<meta property="og:updated_time" content="2018-05-05T12:19:07.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hibernate one">
+<meta name="twitter:description" content="介绍&amp;nbsp;&amp;nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 &amp;nbsp;&amp;nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/05/Hibernate%20one/hibernate1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/05/Hibernate one/"/>
+
+
+
+
+
+  <title>Hibernate one | </title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/Hibernate one/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tanhw">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hibernate one</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T19:42:44+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>&nbsp;&nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用<font color="red">对象编程思维</font>来操纵数据库。<br> &nbsp;&nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><p>&nbsp;&nbsp;首先最基本导入hibernate和jdbc(mysql)所必需的的包导入<br><img src="/2018/05/05/Hibernate one/hibernate1.png" alt="hibernate_img1"></p>
+<h4 id="创建数据库和表"><a href="#创建数据库和表" class="headerlink" title="创建数据库和表"></a>创建数据库和表</h4><pre><code>CREATE TABLE `cst_customer` (
+      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,
+      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,
+      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户信息来源&#39;,
+      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户所属行业&#39;,
+      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户级别&#39;,
+      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;联系人&#39;,
+      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;固定电话&#39;,
+      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;移动电话&#39;,
+      PRIMARY KEY (`cust_id`)
+    ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+</code></pre><p>(其实不创建表也行，直接根据bean也导出一张表,后面再提)<br>根据表的字段创建出相应bean</p>
+<pre><code>public class Customer {
+
+    /*
+     * CREATE TABLE `cst_customer` (
+      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,
+      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,
+      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户信息来源&#39;,
+      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户所属行业&#39;,
+      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户级别&#39;,
+      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;联系人&#39;,
+      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;固定电话&#39;,
+      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;移动电话&#39;,
+      PRIMARY KEY (`cust_id`)
+    ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+     */
+    private Long cust_id;
+    private String cust_name;
+    private String cust_source;
+    private String cust_industry;
+    private String cust_level;
+    private String cust_linkman;
+    private String cust_phone;
+    private String cust_mobile;
+    //get和set,toString略
+}
+</code></pre><h4 id="配置文件的配置"><a href="#配置文件的配置" class="headerlink" title="配置文件的配置"></a>配置文件的配置</h4><h5 id="导入xml约束dtd"><a href="#导入xml约束dtd" class="headerlink" title="导入xml约束dtd"></a>导入xml约束dtd</h5><p>eclipse导入方法Window=&gt;Preference=&gt;找到 Xml Catalog=&gt;add=&gt;找到dtd导入就行了<br><img src="/2018/05/05/Hibernate one/hibernate2.png" alt="hibernate_img2"></p>
+<h5 id="创建映射文件"><a href="#创建映射文件" class="headerlink" title="创建映射文件"></a>创建映射文件</h5><p>&nbsp;&nbsp;实体类本身没有持久化能力，而Hibernate需要知道需要知道该实体类映射数据库Hibernate哪个表，以及类中哪个字段，都需要映射文件中配置,在与该类同级下创建一个xxx(与持久化类名一致).hbm.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC
+    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+   &lt;!-- 配置表与实体对象的关系 --&gt;
+   &lt;!-- package属性:填写一个包名.在元素内部凡是需要书写完整类名的属性,可以直接写简答类名了. --&gt;
+&lt;hibernate-mapping package=&quot;com.thw.domain&quot; &gt;
+    &lt;!--
+        class元素: 配置实体与表的对应关系的
+            name: 完整类名
+            table:数据库表名
+     --&gt;
+    &lt;class name=&quot;Customer&quot; table=&quot;cst_customer&quot; &gt;
+        &lt;!-- id元素:配置主键映射的属性
+                name: 填写主键对应属性名
+                column(可选): 填写表中的主键列名.默认值:列名会默认使用属性名
+                type(可选):填写列(属性)的类型.hibernate会自动检测实体的属性类型.
+                        每个类型有三种填法: java类型|hibernate类型|数据库类型
+                not-null(可选):配置该属性(列)是否不能为空. 默认值:false
+                length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
+         --&gt;
+        &lt;id name=&quot;cust_id&quot;  &gt;
+            &lt;!-- generator:主键生成策略 --&gt;
+            &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;
+        &lt;/id&gt;
+        &lt;!-- property元素:除id之外的普通属性映射
+                name: 填写属性名
+                column(可选): 填写列名
+                type(可选):填写列(属性)的类型.hibernate会自动检测实体的属性类型.
+                        每个类型有三种填法: java类型|hibernate类型|数据库类型
+                not-null(可选):配置该属性(列)是否不能为空. 默认值:false
+                length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
+         --&gt;
+        &lt;property name=&quot;cust_name&quot; column=&quot;cust_name&quot; &gt;
+            &lt;!--  &lt;column name=&quot;cust_name&quot; sql-type=&quot;varchar&quot; &gt;&lt;/column&gt; --&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;cust_source&quot; column=&quot;cust_source&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_industry&quot; column=&quot;cust_industry&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_level&quot; column=&quot;cust_level&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_linkman&quot; column=&quot;cust_linkman&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_phone&quot; column=&quot;cust_phone&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_mobile&quot; column=&quot;cust_mobile&quot; &gt;&lt;/property&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre><h5 id="创建Hibernate核心配置文件"><a href="#创建Hibernate核心配置文件" class="headerlink" title="创建Hibernate核心配置文件"></a>创建Hibernate核心配置文件</h5><h6 id="Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值-在项目的src下面创建一个hibernate-cfg-xml"><a href="#Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值-在项目的src下面创建一个hibernate-cfg-xml" class="headerlink" title="Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml"></a>Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml</h6><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC
+    &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;
+&lt;hibernate-configuration&gt;
+    &lt;session-factory&gt;
+
+        &lt;!--
+        #hibernate.dialect org.hibernate.dialect.MySQLDialect
+        #hibernate.dialect org.hibernate.dialect.MySQLInnoDBDialect
+        #hibernate.dialect org.hibernate.dialect.MySQLMyISAMDialect
+        #hibernate.connection.driver_class com.mysql.jdbc.Driver
+        #hibernate.connection.url jdbc:mysql:///test
+        #hibernate.connection.username gavin
+        #hibernate.connection.password
+         --&gt;
+         &lt;!-- 数据库驱动 --&gt;
+        &lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
+         &lt;!-- 数据库url --&gt;
+        &lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///xxx&lt;/property&gt;
+         &lt;!-- 数据库连接用户名 --&gt;
+        &lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;
+         &lt;!-- 数据库连接密码 --&gt;
+        &lt;property name=&quot;hibernate.connection.password&quot;&gt;xxx&lt;/property&gt;
+        &lt;!-- 数据库方言
+            不同的数据库中,sql语法略有区别. 指定方言可以让hibernate框架在生成sql语句时.针对数据库的方言生成.
+            sql99标准: DDL 定义语言  库表的增删改查
+                      DCL 控制语言  事务 权限
+                      DML 操纵语言  增删改查
+            注意: MYSQL在选择方言时,请选择最短的方言.
+         --&gt;
+        &lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5InnoDBDialect&lt;/property&gt;
+
+
+        &lt;!-- #hibernate.show_sql true
+             #hibernate.format_sql true
+        --&gt;
+        &lt;!-- 将hibernate生成的sql语句打印到控制台 --&gt;
+        &lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
+        &lt;!-- 将hibernate生成的sql语句格式化(语法缩进) --&gt;
+        &lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
+        &lt;!--
+        ## auto schema export  自动导出表结构. 自动建表
+        #hibernate.hbm2ddl.auto create        自动建表.每次框架运行都会创建新的表.以前表将会被覆盖,表数据会丢失.(开发环境中测试使用)
+        #hibernate.hbm2ddl.auto create-drop 自动建表.每次框架运行结束都会将所有表删除.(开发环境中测试使用)
+        #hibernate.hbm2ddl.auto update(推荐使用) 自动生成表.如果已经存在不会再生成.如果表有变动.自动更新表(不会删除任何数据).
+        #hibernate.hbm2ddl.auto validate    校验.不自动生成表.每次启动会校验数据库中表是否正确.校验失败.
+         --&gt;
+        &lt;property name=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/property&gt;
+        &lt;!-- 引入orm元数据
+            路径书写: 填写src下的路径
+         --&gt;
+        &lt;mapping resource=&quot;com/thw/domain/Customer.hbm.xml&quot; /&gt;
+
+    &lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre><code>import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.junit.Test;
+
+import com.thw.domain.Customer;
+
+public class hibernateTest {
+    @Test
+    //保存客户
+    public void fun1(){
+            //启动,加载配置信息,Configuration conf = new Configuration().configure()为默认去src下面找到hibernate.cfg.xml加载也可以自定义 Configuration().configure(&quot;文件路径&quot;)加载.
+
+        Configuration conf = new Configuration().configure();
+
+        //创建一个SessionFactory工厂
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+        //获得Session实例
+        Session session = sessionFactory.openSession();
+        //事务操作
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+        Customer c = new Customer();
+        c.setCust_name(&quot;google公司&quot;);
+
+        session.save(c);//执行保存
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+    }
+    @Test
+    //查找客户
+    public void fun2(){
+        Configuration conf = new Configuration().configure();
+
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+        Customer customer = session.get(Customer.class, 1L);
+        System.out.println(customer);
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+    }
+    @Test
+    //更新客户
+    public void fun3(){
+        Configuration conf = new Configuration().configure();
+
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+
+        Customer customer = session.get(Customer.class, 1L);
+        customer.setCust_name(&quot;百度公司&quot;);
+        session.update(customer);
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+        System.out.println(customer);
+    }
+    @Test
+    //删除客户
+    public void fun4(){
+        Configuration conf = new Configuration().configure();
+
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+
+        Customer customer = session.get(Customer.class, 1L);
+        session.delete(customer);
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+        System.out.println(customer);
+    }
+}
+</code></pre><h2 id="一些名词解释"><a href="#一些名词解释" class="headerlink" title="一些名词解释"></a>一些名词解释</h2><h6 id="SessionFactory-Session工厂对象"><a href="#SessionFactory-Session工厂对象" class="headerlink" title="SessionFactory:Session工厂对象"></a>SessionFactory:Session工厂对象</h6><p>&nbsp;&nbsp;SessionFactory负责Hibernate初始化和建立Session对象,它充当数据储存代理，并负责创建Session对象。创建用了工程对象模式。<font color="red">需注意的是，SessionFactory并不是一个轻量级的</font>，一般情况下一个项目下只需要一个SessionFactory，当需要操作多个数据库时，可以为每个数据库指定一个SessionFactory。<br><br>&nbsp;&nbsp;SessionFactory在Hibernate中起了一个缓冲作用，Hibernate可以自动生成SQL语句，映射数据和某些可重复利用的数据放在这个缓冲区。同时它还保存数据库配置所有映射关系，维护当前二级缓存。<br><br>&nbsp;&nbsp;SessionFactory具有以下特点：</p>
+<ul>
+<li>它是线程安全</li>
+<li><p>它是重量级<br>SessionFactory维护着一个连接池,若使用第三方连接池C3P0,那么需要手动配置</p>
+<pre><code>&lt;!--配置C3P0--&gt;
+&lt;property name=&quot;hibernate.connection.provider_class&quot;&gt;org.hibernate.connection.C3P0ConnectionProvider&lt;/property&gt;
+&lt;!--连接池可用数据库连接最大数--&gt;
+&lt;property name=&quot;hibernate.c3p0.max_size&quot;&gt;20&lt;/property&gt;
+&lt;!--连接池可用数据库连接最小数--&gt;
+&lt;property name=&quot;hibernate.c3p0.min_size&quot;&gt;5&lt;/property&gt;
+&lt;!--连接过期时间--&gt;
+&lt;property name=&quot;hibernate.c3p0.timeout&quot;&gt;120&lt;/property&gt;
+&lt;!--每3000s去检查空闲连接--&gt;
+&lt;property name=&quot;hibernate.c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
+</code></pre><h6 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h6><p>&nbsp;&nbsp;Session负责执行被持久化对象的CRUD操作（该操作完成与数据库的交流，包含许多sql语句）,只有在Session管理下可以进行持久化操作,它有两种方式创建实例:</p>
+</li>
+<li><p>Session session = sessionFactory.openSession();</p>
+</li>
+<li>Session session = sessionFactory.getCurrentSession();</li>
+</ul>
+<p>&nbsp;&nbsp;openSession会获取一个SessionFactory创建的Session实例，需要手动调用close()关闭,而getCurrentSession创建的Session实例会绑定在当前线程，提交或回滚事务自动关闭。<br><br>&nbsp;&nbsp;Session并不是线程安全，多个并发线程同时操作一个Session实例，可能导致Session(方法内部定义就不会出现问题)，所以应该避免多线程共享Session实例，而且它的创建与销毁并不需要消耗太多资源。它还有个一缓存，即Hibernate一级缓存，这个缓存主要存放当前工作单元加载的对象。<br>session提供了大量方法</p>
+<ul>
+<li>save(),update(),和saveOrUpdate()方法，用于增加和修改对象</li>
+<li>delete()删除对象</li>
+<li>get()和load()，根据主键查询</li>
+<li>createQuery()和creatSQLQuery()数据库操作对象</li>
+<li>createCriteria()条件查询</li>
+</ul>
+<h6 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h6><p>&nbsp;&nbsp;用于管理事务，它常用有两个方法</p>
+<ul>
+<li>commit(),提交session实例</li>
+<li>rollback(),撤销事务操作</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/04/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/23/java i++,++i /" rel="prev" title="java i++,++i">
+                java i++,++i <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tanhw</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导包"><span class="nav-number">2.0.1.</span> <span class="nav-text">导包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建数据库和表"><span class="nav-number">2.0.2.</span> <span class="nav-text">创建数据库和表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件的配置"><span class="nav-number">2.0.3.</span> <span class="nav-text">配置文件的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#导入xml约束dtd"><span class="nav-number">2.0.3.1.</span> <span class="nav-text">导入xml约束dtd</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建映射文件"><span class="nav-number">2.0.3.2.</span> <span class="nav-text">创建映射文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建Hibernate核心配置文件"><span class="nav-number">2.0.3.3.</span> <span class="nav-text">创建Hibernate核心配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值-在项目的src下面创建一个hibernate-cfg-xml"><span class="nav-number">2.0.3.3.1.</span> <span class="nav-text">Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些名词解释"><span class="nav-number">4.</span> <span class="nav-text">一些名词解释</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#SessionFactory-Session工厂对象"><span class="nav-number">4.0.0.0.1.</span> <span class="nav-text">SessionFactory:Session工厂对象</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Session"><span class="nav-number">4.0.0.0.2.</span> <span class="nav-text">Session</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Transaction"><span class="nav-number">4.0.0.0.3.</span> <span class="nav-text">Transaction</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tanhw</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
