@@ -7,20 +7,20 @@
   
   
   
-  <title>tanhw&#39;s Blog</title>
+  <title>tanhw</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="青春总有遗憾">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tanhw&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="tanhw&#39;s Blog">
+<meta property="og:title" content="tanhw">
+<meta property="og:url" content="https://thw2015.github.io/index.html">
+<meta property="og:site_name" content="tanhw">
 <meta property="og:description" content="青春总有遗憾">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tanhw&#39;s Blog">
+<meta name="twitter:title" content="tanhw">
 <meta name="twitter:description" content="青春总有遗憾">
   
-    <link rel="alternative" href="/atom.xml" title="tanhw&#39;s Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="tanhw" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -171,7 +171,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/java基础/" style="font-size: 10px;">java基础</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a>
                     </div>
                 </section>
                 
@@ -249,7 +249,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Spring-Schedule"><a href="#Spring-Schedule" class="headerlink" title="Spring Schedule"></a>Spring Schedule</h2><p>是实现作业调度，如定时任务的一个spring系列的一个框架</p>
+              <h2 id="Spring-Schedule"><a href="#Spring-Schedule" class="headerlink" title="Spring Schedule"></a>Spring Schedule</h2><p>是实现作业调度，如定时任务的一个spring系列的一个框架</p>
 <p>该框架的优点</p>
 <blockquote>
 <ul>
@@ -259,109 +259,27 @@
 </ul>
 </blockquote>
 <hr>
-<p>###cron表达式<br>cron表达式格式:秒 分 时 日 月 周 年（可选）</p>
-<ol>
-<li>Seconds</li>
-<li>Minutes</li>
-<li>Hours</li>
-<li>Day-of-Month</li>
-<li>Month</li>
-<li>Day-of-Week</li>
-<li>Year(可选)</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">字段名</th>
-<th style="text-align:left">允许值</th>
-<th style="text-align:left">允许的特殊字符</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">秒</td>
-<td style="text-align:left">0-59</td>
-<td style="text-align:left">, - * /</td>
-</tr>
-<tr>
-<td style="text-align:left">分</td>
-<td style="text-align:left">0-59</td>
-<td style="text-align:left">, - * /</td>
-</tr>
-<tr>
-<td style="text-align:left">小时</td>
-<td style="text-align:left">0-23</td>
-<td style="text-align:left">, - * /</td>
-</tr>
-<tr>
-<td style="text-align:left">月内日期</td>
-<td style="text-align:left">1-31</td>
-<td style="text-align:left">, - * ? / L W C</td>
-</tr>
-<tr>
-<td style="text-align:left">月</td>
-<td style="text-align:left">1-12 或者 JAN-DEC</td>
-<td style="text-align:left">, - * /</td>
-</tr>
-<tr>
-<td style="text-align:left">周内日期</td>
-<td style="text-align:left">1-7 或者 SUN-SAT</td>
-<td style="text-align:left">, - * ？/ L C #</td>
-</tr>
-<tr>
-<td style="text-align:left">年(可选)</td>
-<td style="text-align:left">留空，1970-2099</td>
-<td style="text-align:left">, - * /</td>
-</tr>
-</tbody>
-</table>
-<p>特殊字符含义</p>
-<ul>
-<li><strong>*</strong> ：表示匹配该域的任意值。假如在Minutes域使用*, 即表示每分钟都会触发事件。</li>
-<li><strong>?</strong>：只能用在DayofMonth和DayofWeek两个域。它也匹配域的任意值，但实际不会。因为DayofMonth和DayofWeek会相互影响。例如想在每月的20日触发调度，不管20日到底是星期几，则只能使用如下写法： 13 13 15 20 <em> ?, 其中最后一位只能用？，而不能使用</em>，如果使用*表示不管星期几都会触发，实际上并不是这样。</li>
-<li><strong>-</strong>：表示范围。例如在Minutes域使用5-20，表示从5分到20分钟每分钟触发一次 </li>
-<li><strong>/</strong>：表示起始时间开始触发，然后每隔固定时间触发一次。例如在Minutes域使用5/20,则意味着5分钟触发一次，而25，45等分别触发一次. </li>
-<li><strong>,</strong>：表示列出枚举值。例如：在Minutes域使用5,20，则意味着在5和20分每分钟触发一次。 </li>
-<li><strong>L</strong>：表示最后，只能出现在DayofWeek和DayofMonth域。如果在DayofWeek域使用5L,意味着在最后的一个星期四触发。</li>
-<li><strong>W</strong>:表示有效工作日(周一到周五),只能出现在DayofMonth域，系统将在离指定日期的最近的有效工作日触发事件。例如：在 DayofMonth使用5W，如果5日是星期六，则将在最近的工作日：星期五，即4日触发。如果5日是星期天，则在6日(周一)触发；如果5日在星期一到星期五中的一天，则就在5日触发。另外一点，W的最近寻找不会跨过月份 。</li>
-<li><strong>LW</strong>:这两个字符可以连用，表示在某个月最后一个工作日，即最后一个星期五。 </li>
-<li><strong>#</strong>:用于确定每个月第几个星期几，只能出现在DayofMonth域。例如在4#2，表示某月的第二个星期三。</li>
-</ul>
-<p>####常见cron表达式</p>
-<ol>
-<li>0 0 2 1 <em> ? </em>   表示在每月的1日的凌晨2点调整任务</li>
-<li>0 15 10 ? * MON-FRI   表示周一到周五每天上午10:15执行作业</li>
-<li>0 15 10 ? 6L 2002-2006   表示2002-2006年的每个月的最后一个星期五上午10:15执行作</li>
-<li>0 0 10,14,16 <em> </em> ?   每天上午10点，下午2点，4点 </li>
-<li>0 0/30 9-17 <em> </em> ?   朝九晚五工作时间内每半小时 </li>
-</ol>
-<hr>
-<p>在项目中为了关闭指定时间内的订单运用到了spring schedule我们先来查看配置</p>
-<p>在applicationContext.xml(根上下文中)加入:<br><code>&lt;task:annotation/&gt;</code></p>
-<p>在项目中一个task文件夹来存放相关定时任务处理逻辑</p>
-<pre><code>@Component
-@Slf4j
-public class CloseOrderTask {
-    @Autowired
-    IOrderService iOrderService;
-    @Scheduled(cron = &quot;0 */1 * * * ?&quot;)
-    //隔一分钟执行一次
-    public void closeOrderTaskV1(){
-        log.info(&quot;关闭订单定时任务启动&quot;);
-        ...//订单关闭逻辑
-        log.info(&quot;关闭订单定时任务结束&quot;);
-    }
-}
-</code></pre><p>这个定时器注解配置就这样</p>
-
+          
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2018/09/13/Spring Schedule/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -410,123 +328,28 @@ public class CloseOrderTask {
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&nbsp;&nbsp;apache fileupload是一个文件上传包,这里简单的介绍一下他的使用方法导入包<br>    <img src="/2018/05/30/apache-fileupload/1.png" alt="1.png"><br>    &nbsp;&nbsp;由于fileupload操作有大量的io操作，所以导入一个IOUtil包方便开发<br>    <img src="/2018/05/30/apache-fileupload/2.png" alt="2.png"><br>    &nbsp;&nbsp;导入这两个包后就可以就行文件上传的小demo<br>    &nbsp;&nbsp;首先页面代码</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;title&gt;Insert title here&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;form action=&quot;/fileup/fileupload&quot; method=&quot;post`&quot; enctype=&quot;multipart/form-data&quot;&gt;
-        &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
-        &lt;input type=&quot;file&quot; name=&quot;filename&quot;&gt;&lt;br&gt;
-        &lt;input type=&quot;submit&quot; value=&quot;上传文件&quot;&gt;
-    &lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>&nbsp;&nbsp;这里<font color="red">enctype=”multipart/form-data”</font>在使用包含文件上传控件的表单时，必须使用该值。然后进行servlet的编写</p>
-<pre><code>import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.IOUtils;
-
-public class FileuploadServlet2 extends HttpServlet {
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        try {
-
-
-            //作用：设置缓存文件的大小  设置临时文件存储的位置
-            String path_temp = this.getServletContext().getRealPath(&quot;temp&quot;);
-            //1、创建磁盘文件项工厂
-            //DiskFileItemFactory factory = new DiskFileItemFactory(1024*1024, new File(path_temp));
-            DiskFileItemFactory factory = new DiskFileItemFactory();
-            factory.setSizeThreshold(1024*1024);
-            factory.setRepository(new File(path_temp));
-            //2、创建文件上传的核心类
-            ServletFileUpload upload = new ServletFileUpload(factory);
-            //设置上传文件的名称的编码
-            upload.setHeaderEncoding(&quot;UTF-8&quot;);
-
-            //ServletFileUpload的API
-            boolean multipartContent = upload.isMultipartContent(request);//判断表单是否是文件上传的表单
-            if(multipartContent){
-                //是文件上传的表单
-                //***解析request获得文件项集合
-                List&lt;FileItem&gt; parseRequest = upload.parseRequest(request);
-                if(parseRequest!=null){
-                    for(FileItem item : parseRequest){
-                        //判断是不是一个普通表单项
-                        boolean formField = item.isFormField();
-                        if(formField){
-                            //username=zhangsan
-                            String fieldName = item.getFieldName();
-                            String fieldValue = item.getString(&quot;UTF-8&quot;);//对普通表单项的内容进行编码
-
-                            System.out.println(fieldName+&quot;----&quot;+fieldValue);
-
-                            //当表单是enctype=&quot;multipart/form-data&quot;时 request.getParameter相关的方法
-                            //String parameter = request.getParameter(&quot;username&quot;);
-
-                        }else{
-                            //文件上传项
-                            //文件的名
-                            String fileName = item.getName();
-                            //获得上传文件的内容
-                            InputStream in = item.getInputStream();
-                            String path_store = this.getServletContext().getRealPath(&quot;upload&quot;);
-                            OutputStream out = new FileOutputStream(path_store+&quot;/&quot;+fileName);
-                            IOUtils.copy(in, out);
-                            in.close();
-                            out.close();
-
-                            //删除临时文件
-                            item.delete();
-
-                        }
-                    }
-                }
-
-            }else{
-                //不是文件上传表单
-                //使用原始的表单数据的获得方式 request.getParameter();
-            }
-        } catch (FileUploadException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
-}
-</code></pre><p>最后上传后只需在你的Tomcat中你所指定的文件夹下就能找到你上传的文件。</p>
-
+              <p>&nbsp;&nbsp;apache fileupload是一个文件上传包,这里简单的介绍一下他的使用方法导入包<br></p>
+          
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2018/05/30/apache-fileupload/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -575,7 +398,7 @@ public class FileuploadServlet2 extends HttpServlet {
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="i"><a href="#i" class="headerlink" title="i++"></a>i++</h2><p>&nbsp;&nbsp;观察如下代码</p>
+              <h2 id="i"><a href="#i" class="headerlink" title="i++"></a>i++</h2><p>&nbsp;&nbsp;观察如下代码</p>
 <pre><code>public class demo{
     public  static void main(String[] args){
         int i = 0;
@@ -585,36 +408,27 @@ public class FileuploadServlet2 extends HttpServlet {
     }
 } 
 </code></pre><hr>
-<p>&nbsp;&nbsp;最开始的时候我觉得很糊涂为何输出为0呢？不是应该为1的吗，后来经过javap反编译后了解到其内在.<br>&nbsp;&nbsp;反编译后有如下关键代码</p>
-<ul>
-<li>iconst_0(将int型0推入栈顶)</li>
-<li>istore_1(将栈顶变量存入到第二个本地变量 <font color="red">ps:本地变量索引下标从0开始</font>)</li>
-<li>iload_1(将本地变量表里第二个变量推入到栈顶)</li>
-<li>iinc 1,1(将第二个本地变量执行+1)</li>
-<li>istore_1(将栈顶变量存入到第二个本地变量)</li>
-<li>iload_1(将本地变量表里第二个变量推入到栈顶)</li>
-<li>return(返回栈顶)</li>
-</ul>
-<h2 id="i-1"><a href="#i-1" class="headerlink" title="++i"></a>++i</h2><p>&nbsp;&nbsp;而将i++改为++i后,代码输出为1,,这又是为何,观看下字节码</p>
-<ul>
-<li>iconst_0</li>
-<li>istore_1</li>
-<li>iinc 1, 1</li>
-<li>iload_1</li>
-<li>istore_1</li>
-<li>iload_1</li>
-<li>return</li>
-</ul>
-<p>可以看到i++和++i到底有什么不同,导致最后输出的不同.</p>
-
+          
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java基础/">java基础</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2018/05/23/java i++,++i /#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -663,285 +477,29 @@ public class FileuploadServlet2 extends HttpServlet {
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>&nbsp;&nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用<font color="red">对象编程思维</font>来操纵数据库。<br> &nbsp;&nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><p>&nbsp;&nbsp;首先最基本导入hibernate和jdbc(mysql)所必需的的包导入<br><img src="/2018/05/05/Hibernate one/hibernate1.png" alt="hibernate_img1"></p>
-<h4 id="创建数据库和表"><a href="#创建数据库和表" class="headerlink" title="创建数据库和表"></a>创建数据库和表</h4><pre><code>CREATE TABLE `cst_customer` (
-      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,
-      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,
-      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户信息来源&#39;,
-      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户所属行业&#39;,
-      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户级别&#39;,
-      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;联系人&#39;,
-      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;固定电话&#39;,
-      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;移动电话&#39;,
-      PRIMARY KEY (`cust_id`)
-    ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-</code></pre><p>(其实不创建表也行，直接根据bean也导出一张表,后面再提)<br>根据表的字段创建出相应bean</p>
-<pre><code>public class Customer {
-
-    /*
-     * CREATE TABLE `cst_customer` (
-      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,
-      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,
-      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户信息来源&#39;,
-      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户所属行业&#39;,
-      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户级别&#39;,
-      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;联系人&#39;,
-      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;固定电话&#39;,
-      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;移动电话&#39;,
-      PRIMARY KEY (`cust_id`)
-    ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-     */
-    private Long cust_id;
-    private String cust_name;
-    private String cust_source;
-    private String cust_industry;
-    private String cust_level;
-    private String cust_linkman;
-    private String cust_phone;
-    private String cust_mobile;
-    //get和set,toString略
-}
-</code></pre><h4 id="配置文件的配置"><a href="#配置文件的配置" class="headerlink" title="配置文件的配置"></a>配置文件的配置</h4><h5 id="导入xml约束dtd"><a href="#导入xml约束dtd" class="headerlink" title="导入xml约束dtd"></a>导入xml约束dtd</h5><p>eclipse导入方法Window=&gt;Preference=&gt;找到 Xml Catalog=&gt;add=&gt;找到dtd导入就行了<br><img src="/2018/05/05/Hibernate one/hibernate2.png" alt="hibernate_img2"></p>
-<h5 id="创建映射文件"><a href="#创建映射文件" class="headerlink" title="创建映射文件"></a>创建映射文件</h5><p>&nbsp;&nbsp;实体类本身没有持久化能力，而Hibernate需要知道需要知道该实体类映射数据库Hibernate哪个表，以及类中哪个字段，都需要映射文件中配置,在与该类同级下创建一个xxx(与持久化类名一致).hbm.xml</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE hibernate-mapping PUBLIC
-    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
-    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
-   &lt;!-- 配置表与实体对象的关系 --&gt;
-   &lt;!-- package属性:填写一个包名.在元素内部凡是需要书写完整类名的属性,可以直接写简答类名了. --&gt;
-&lt;hibernate-mapping package=&quot;com.thw.domain&quot; &gt;
-    &lt;!--
-        class元素: 配置实体与表的对应关系的
-            name: 完整类名
-            table:数据库表名
-     --&gt;
-    &lt;class name=&quot;Customer&quot; table=&quot;cst_customer&quot; &gt;
-        &lt;!-- id元素:配置主键映射的属性
-                name: 填写主键对应属性名
-                column(可选): 填写表中的主键列名.默认值:列名会默认使用属性名
-                type(可选):填写列(属性)的类型.hibernate会自动检测实体的属性类型.
-                        每个类型有三种填法: java类型|hibernate类型|数据库类型
-                not-null(可选):配置该属性(列)是否不能为空. 默认值:false
-                length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
-         --&gt;
-        &lt;id name=&quot;cust_id&quot;  &gt;
-            &lt;!-- generator:主键生成策略 --&gt;
-            &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;
-        &lt;/id&gt;
-        &lt;!-- property元素:除id之外的普通属性映射
-                name: 填写属性名
-                column(可选): 填写列名
-                type(可选):填写列(属性)的类型.hibernate会自动检测实体的属性类型.
-                        每个类型有三种填法: java类型|hibernate类型|数据库类型
-                not-null(可选):配置该属性(列)是否不能为空. 默认值:false
-                length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
-         --&gt;
-        &lt;property name=&quot;cust_name&quot; column=&quot;cust_name&quot; &gt;
-            &lt;!--  &lt;column name=&quot;cust_name&quot; sql-type=&quot;varchar&quot; &gt;&lt;/column&gt; --&gt;
-        &lt;/property&gt;
-        &lt;property name=&quot;cust_source&quot; column=&quot;cust_source&quot; &gt;&lt;/property&gt;
-        &lt;property name=&quot;cust_industry&quot; column=&quot;cust_industry&quot; &gt;&lt;/property&gt;
-        &lt;property name=&quot;cust_level&quot; column=&quot;cust_level&quot; &gt;&lt;/property&gt;
-        &lt;property name=&quot;cust_linkman&quot; column=&quot;cust_linkman&quot; &gt;&lt;/property&gt;
-        &lt;property name=&quot;cust_phone&quot; column=&quot;cust_phone&quot; &gt;&lt;/property&gt;
-        &lt;property name=&quot;cust_mobile&quot; column=&quot;cust_mobile&quot; &gt;&lt;/property&gt;
-    &lt;/class&gt;
-&lt;/hibernate-mapping&gt;
-</code></pre><h5 id="创建Hibernate核心配置文件"><a href="#创建Hibernate核心配置文件" class="headerlink" title="创建Hibernate核心配置文件"></a>创建Hibernate核心配置文件</h5><h6 id="Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值-在项目的src下面创建一个hibernate-cfg-xml"><a href="#Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值-在项目的src下面创建一个hibernate-cfg-xml" class="headerlink" title="Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml"></a>Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml</h6><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE hibernate-configuration PUBLIC
-    &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
-    &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;
-&lt;hibernate-configuration&gt;
-    &lt;session-factory&gt;
-
-        &lt;!--
-        #hibernate.dialect org.hibernate.dialect.MySQLDialect
-        #hibernate.dialect org.hibernate.dialect.MySQLInnoDBDialect
-        #hibernate.dialect org.hibernate.dialect.MySQLMyISAMDialect
-        #hibernate.connection.driver_class com.mysql.jdbc.Driver
-        #hibernate.connection.url jdbc:mysql:///test
-        #hibernate.connection.username gavin
-        #hibernate.connection.password
-         --&gt;
-         &lt;!-- 数据库驱动 --&gt;
-        &lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
-         &lt;!-- 数据库url --&gt;
-        &lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///xxx&lt;/property&gt;
-         &lt;!-- 数据库连接用户名 --&gt;
-        &lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;
-         &lt;!-- 数据库连接密码 --&gt;
-        &lt;property name=&quot;hibernate.connection.password&quot;&gt;xxx&lt;/property&gt;
-        &lt;!-- 数据库方言
-            不同的数据库中,sql语法略有区别. 指定方言可以让hibernate框架在生成sql语句时.针对数据库的方言生成.
-            sql99标准: DDL 定义语言  库表的增删改查
-                      DCL 控制语言  事务 权限
-                      DML 操纵语言  增删改查
-            注意: MYSQL在选择方言时,请选择最短的方言.
-         --&gt;
-        &lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5InnoDBDialect&lt;/property&gt;
-
-
-        &lt;!-- #hibernate.show_sql true
-             #hibernate.format_sql true
-        --&gt;
-        &lt;!-- 将hibernate生成的sql语句打印到控制台 --&gt;
-        &lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
-        &lt;!-- 将hibernate生成的sql语句格式化(语法缩进) --&gt;
-        &lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
-        &lt;!--
-        ## auto schema export  自动导出表结构. 自动建表
-        #hibernate.hbm2ddl.auto create        自动建表.每次框架运行都会创建新的表.以前表将会被覆盖,表数据会丢失.(开发环境中测试使用)
-        #hibernate.hbm2ddl.auto create-drop 自动建表.每次框架运行结束都会将所有表删除.(开发环境中测试使用)
-        #hibernate.hbm2ddl.auto update(推荐使用) 自动生成表.如果已经存在不会再生成.如果表有变动.自动更新表(不会删除任何数据).
-        #hibernate.hbm2ddl.auto validate    校验.不自动生成表.每次启动会校验数据库中表是否正确.校验失败.
-         --&gt;
-        &lt;property name=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/property&gt;
-        &lt;!-- 引入orm元数据
-            路径书写: 填写src下的路径
-         --&gt;
-        &lt;mapping resource=&quot;com/thw/domain/Customer.hbm.xml&quot; /&gt;
-
-    &lt;/session-factory&gt;
-&lt;/hibernate-configuration&gt;
-</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre><code>import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.junit.Test;
-
-import com.thw.domain.Customer;
-
-public class hibernateTest {
-    @Test
-    //保存客户
-    public void fun1(){
-            //启动,加载配置信息,Configuration conf = new Configuration().configure()为默认去src下面找到hibernate.cfg.xml加载也可以自定义 Configuration().configure(&quot;文件路径&quot;)加载.
-
-        Configuration conf = new Configuration().configure();
-
-        //创建一个SessionFactory工厂
-        SessionFactory sessionFactory = conf.buildSessionFactory();
-        //获得Session实例
-        Session session = sessionFactory.openSession();
-        //事务操作
-        Transaction tx = session.beginTransaction();
-        //----------------------------------------------
-        Customer c = new Customer();
-        c.setCust_name(&quot;google公司&quot;);
-
-        session.save(c);//执行保存
-
-        //----------------------------------------------
-        tx.commit();
-        session.close();
-        sessionFactory.close();
-    }
-    @Test
-    //查找客户
-    public void fun2(){
-        Configuration conf = new Configuration().configure();
-
-        SessionFactory sessionFactory = conf.buildSessionFactory();
-
-        Session session = sessionFactory.openSession();
-
-        Transaction tx = session.beginTransaction();
-        //----------------------------------------------
-        Customer customer = session.get(Customer.class, 1L);
-        System.out.println(customer);
-
-        //----------------------------------------------
-        tx.commit();
-        session.close();
-        sessionFactory.close();
-    }
-    @Test
-    //更新客户
-    public void fun3(){
-        Configuration conf = new Configuration().configure();
-
-        SessionFactory sessionFactory = conf.buildSessionFactory();
-
-        Session session = sessionFactory.openSession();
-
-        Transaction tx = session.beginTransaction();
-        //----------------------------------------------
-
-        Customer customer = session.get(Customer.class, 1L);
-        customer.setCust_name(&quot;百度公司&quot;);
-        session.update(customer);
-
-        //----------------------------------------------
-        tx.commit();
-        session.close();
-        sessionFactory.close();
-        System.out.println(customer);
-    }
-    @Test
-    //删除客户
-    public void fun4(){
-        Configuration conf = new Configuration().configure();
-
-        SessionFactory sessionFactory = conf.buildSessionFactory();
-
-        Session session = sessionFactory.openSession();
-
-        Transaction tx = session.beginTransaction();
-        //----------------------------------------------
-
-        Customer customer = session.get(Customer.class, 1L);
-        session.delete(customer);
-
-        //----------------------------------------------
-        tx.commit();
-        session.close();
-        sessionFactory.close();
-        System.out.println(customer);
-    }
-}
-</code></pre><h2 id="一些名词解释"><a href="#一些名词解释" class="headerlink" title="一些名词解释"></a>一些名词解释</h2><h6 id="SessionFactory-Session工厂对象"><a href="#SessionFactory-Session工厂对象" class="headerlink" title="SessionFactory:Session工厂对象"></a>SessionFactory:Session工厂对象</h6><p>&nbsp;&nbsp;SessionFactory负责Hibernate初始化和建立Session对象,它充当数据储存代理，并负责创建Session对象。创建用了工程对象模式。<font color="red">需注意的是，SessionFactory并不是一个轻量级的</font>，一般情况下一个项目下只需要一个SessionFactory，当需要操作多个数据库时，可以为每个数据库指定一个SessionFactory。<br><br>&nbsp;&nbsp;SessionFactory在Hibernate中起了一个缓冲作用，Hibernate可以自动生成SQL语句，映射数据和某些可重复利用的数据放在这个缓冲区。同时它还保存数据库配置所有映射关系，维护当前二级缓存。<br><br>&nbsp;&nbsp;SessionFactory具有以下特点：</p>
-<ul>
-<li>它是线程安全</li>
-<li><p>它是重量级<br>SessionFactory维护着一个连接池,若使用第三方连接池C3P0,那么需要手动配置</p>
-<pre><code>&lt;!--配置C3P0--&gt;
-&lt;property name=&quot;hibernate.connection.provider_class&quot;&gt;org.hibernate.connection.C3P0ConnectionProvider&lt;/property&gt;
-&lt;!--连接池可用数据库连接最大数--&gt;
-&lt;property name=&quot;hibernate.c3p0.max_size&quot;&gt;20&lt;/property&gt;
-&lt;!--连接池可用数据库连接最小数--&gt;
-&lt;property name=&quot;hibernate.c3p0.min_size&quot;&gt;5&lt;/property&gt;
-&lt;!--连接过期时间--&gt;
-&lt;property name=&quot;hibernate.c3p0.timeout&quot;&gt;120&lt;/property&gt;
-&lt;!--每3000s去检查空闲连接--&gt;
-&lt;property name=&quot;hibernate.c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
-</code></pre><h6 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h6><p>&nbsp;&nbsp;Session负责执行被持久化对象的CRUD操作（该操作完成与数据库的交流，包含许多sql语句）,只有在Session管理下可以进行持久化操作,它有两种方式创建实例:</p>
-</li>
-<li><p>Session session = sessionFactory.openSession();</p>
-</li>
-<li>Session session = sessionFactory.getCurrentSession();</li>
-</ul>
-<p>&nbsp;&nbsp;openSession会获取一个SessionFactory创建的Session实例，需要手动调用close()关闭,而getCurrentSession创建的Session实例会绑定在当前线程，提交或回滚事务自动关闭。<br><br>&nbsp;&nbsp;Session并不是线程安全，多个并发线程同时操作一个Session实例，可能导致Session(方法内部定义就不会出现问题)，所以应该避免多线程共享Session实例，而且它的创建与销毁并不需要消耗太多资源。它还有个一缓存，即Hibernate一级缓存，这个缓存主要存放当前工作单元加载的对象。<br>session提供了大量方法</p>
-<ul>
-<li>save(),update(),和saveOrUpdate()方法，用于增加和修改对象</li>
-<li>delete()删除对象</li>
-<li>get()和load()，根据主键查询</li>
-<li>createQuery()和creatSQLQuery()数据库操作对象</li>
-<li>createCriteria()条件查询</li>
-</ul>
-<h6 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h6><p>&nbsp;&nbsp;用于管理事务，它常用有两个方法</p>
-<ul>
-<li>commit(),提交session实例</li>
-<li>rollback(),撤销事务操作</li>
-</ul>
-
+              <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>&nbsp;&nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用<font color="red">对象编程思维</font>来操纵数据库。<br> &nbsp;&nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2>
+          
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate/">hibernate</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2018/05/05/Hibernate one/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -990,20 +548,9 @@ public class hibernateTest {
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+              <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3>
+          
       
     </div>
     
@@ -1012,6 +559,10 @@ public class hibernateTest {
       
 
       
+      
+        <p class="article-more-link">
+          <a   href="/2018/05/04/hello-world/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

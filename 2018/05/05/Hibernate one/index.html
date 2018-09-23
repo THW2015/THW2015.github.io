@@ -7,24 +7,25 @@
   
   
   
-  <title>Hibernate one | tanhw&#39;s Blog</title>
+  <title>Hibernate one | tanhw</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="介绍&amp;nbsp;&amp;nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 &amp;nbsp;&amp;nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端">
+<meta name="keywords" content="hibernate">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hibernate one">
-<meta property="og:url" content="http://yoursite.com/2018/05/05/Hibernate one/index.html">
-<meta property="og:site_name" content="tanhw&#39;s Blog">
+<meta property="og:url" content="https://thw2015.github.io/2018/05/05/Hibernate one/index.html">
+<meta property="og:site_name" content="tanhw">
 <meta property="og:description" content="介绍&amp;nbsp;&amp;nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 &amp;nbsp;&amp;nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/05/05/Hibernate%20one/hibernate1.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/05/Hibernate%20one/hibernate2.png">
-<meta property="og:updated_time" content="2018-05-05T12:19:07.814Z">
+<meta property="og:image" content="https://thw2015.github.io/2018/05/05/Hibernate%20one/hibernate1.png">
+<meta property="og:image" content="https://thw2015.github.io/2018/05/05/Hibernate%20one/hibernate2.png">
+<meta property="og:updated_time" content="2018-09-23T15:21:30.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hibernate one">
 <meta name="twitter:description" content="介绍&amp;nbsp;&amp;nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 &amp;nbsp;&amp;nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/05/Hibernate%20one/hibernate1.png">
+<meta name="twitter:image" content="https://thw2015.github.io/2018/05/05/Hibernate%20one/hibernate1.png">
   
-    <link rel="alternative" href="/atom.xml" title="tanhw&#39;s Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="tanhw" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -172,7 +173,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/java基础/" style="font-size: 10px;">java基础</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a>
                     </div>
                 </section>
                 
@@ -246,8 +247,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate/">hibernate</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -256,7 +265,8 @@
       
           
         <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>&nbsp;&nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用<font color="red">对象编程思维</font>来操纵数据库。<br> &nbsp;&nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><p>&nbsp;&nbsp;首先最基本导入hibernate和jdbc(mysql)所必需的的包导入<br><img src="/2018/05/05/Hibernate one/hibernate1.png" alt="hibernate_img1"></p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><a id="more"></a>
+<h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><p>&nbsp;&nbsp;首先最基本导入hibernate和jdbc(mysql)所必需的的包导入<br><img src="/2018/05/05/Hibernate one/hibernate1.png" alt="hibernate_img1"></p>
 <h4 id="创建数据库和表"><a href="#创建数据库和表" class="headerlink" title="创建数据库和表"></a>创建数据库和表</h4><pre><code>CREATE TABLE `cst_customer` (
       `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,
       `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,
@@ -536,10 +546,10 @@ public class hibernateTest {
         <p><span>本文标题:</span><a  href="/2018/05/05/Hibernate one/">Hibernate one</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 tanhw 的个人博客">tanhw</a></p>
         <p><span>发布时间:</span>2018年05月05日 - 19时42分</p>
-        <p><span>最后更新:</span>2018年05月05日 - 20时19分</p>
+        <p><span>最后更新:</span>2018年09月23日 - 23时21分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/05/05/Hibernate one/" title="Hibernate one">http://yoursite.com/2018/05/05/Hibernate one/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/05/05/Hibernate one/　　作者: tanhw" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/05/05/Hibernate one/" title="Hibernate one">https://thw2015.github.io/2018/05/05/Hibernate one/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://thw2015.github.io/2018/05/05/Hibernate one/　　作者: tanhw" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -635,8 +645,8 @@ public class hibernateTest {
   <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
   <script type="text/javascript">
     window.changyan.api.config({
-      appid: 'xxxx',
-      conf: 'xxxxxxxxx'
+      appid: 'cytPDR8h5',
+      conf: 'ddf483adc32153de5ba46b2c917ca896'
     });
   </script>
 </section>
