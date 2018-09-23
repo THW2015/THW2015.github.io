@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>Hibernate one | tanhw&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="介绍&amp;nbsp;&amp;nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 &amp;nbsp;&amp;nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hibernate one">
+<meta property="og:url" content="http://yoursite.com/2018/05/05/Hibernate one/index.html">
+<meta property="og:site_name" content="tanhw&#39;s Blog">
+<meta property="og:description" content="介绍&amp;nbsp;&amp;nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 &amp;nbsp;&amp;nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/05/05/Hibernate%20one/hibernate1.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/05/Hibernate%20one/hibernate2.png">
+<meta property="og:updated_time" content="2018-05-05T12:19:07.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hibernate one">
+<meta name="twitter:description" content="介绍&amp;nbsp;&amp;nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 &amp;nbsp;&amp;nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/05/Hibernate%20one/hibernate1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="tanhw&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">tanhw</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/categories/开发工具/">玩转开发工具</a></li>
+                        
+                            <li><a  href="/categories/digital">玩转数码</a></li>
+                        
+                            <li><a  href="/categories/algorithm">算法学习</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="/xxxxx" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱动漫,爱游戏,爱编程,爱运动,爱的太多了!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">tanhw</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">tanhw</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                
+                    <li><a href="/categories/digital">玩转数码</a></li>
+                
+                    <li><a href="/categories/algorithm">算法学习</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="/xxxxx" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Hibernate one" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/05/05/Hibernate one/" class="article-date">
+      <time datetime="2018-05-05T11:42:44.000Z" itemprop="datePublished">2018-05-05</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hibernate one
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>&nbsp;&nbsp;Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用<font color="red">对象编程思维</font>来操纵数据库。<br> &nbsp;&nbsp;Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><p>&nbsp;&nbsp;首先最基本导入hibernate和jdbc(mysql)所必需的的包导入<br><img src="/2018/05/05/Hibernate one/hibernate1.png" alt="hibernate_img1"></p>
+<h4 id="创建数据库和表"><a href="#创建数据库和表" class="headerlink" title="创建数据库和表"></a>创建数据库和表</h4><pre><code>CREATE TABLE `cst_customer` (
+      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,
+      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,
+      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户信息来源&#39;,
+      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户所属行业&#39;,
+      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户级别&#39;,
+      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;联系人&#39;,
+      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;固定电话&#39;,
+      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;移动电话&#39;,
+      PRIMARY KEY (`cust_id`)
+    ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+</code></pre><p>(其实不创建表也行，直接根据bean也导出一张表,后面再提)<br>根据表的字段创建出相应bean</p>
+<pre><code>public class Customer {
+
+    /*
+     * CREATE TABLE `cst_customer` (
+      `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,
+      `cust_name` VARCHAR(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,
+      `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户信息来源&#39;,
+      `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户所属行业&#39;,
+      `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &#39;客户级别&#39;,
+      `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &#39;联系人&#39;,
+      `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &#39;固定电话&#39;,
+      `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &#39;移动电话&#39;,
+      PRIMARY KEY (`cust_id`)
+    ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+     */
+    private Long cust_id;
+    private String cust_name;
+    private String cust_source;
+    private String cust_industry;
+    private String cust_level;
+    private String cust_linkman;
+    private String cust_phone;
+    private String cust_mobile;
+    //get和set,toString略
+}
+</code></pre><h4 id="配置文件的配置"><a href="#配置文件的配置" class="headerlink" title="配置文件的配置"></a>配置文件的配置</h4><h5 id="导入xml约束dtd"><a href="#导入xml约束dtd" class="headerlink" title="导入xml约束dtd"></a>导入xml约束dtd</h5><p>eclipse导入方法Window=&gt;Preference=&gt;找到 Xml Catalog=&gt;add=&gt;找到dtd导入就行了<br><img src="/2018/05/05/Hibernate one/hibernate2.png" alt="hibernate_img2"></p>
+<h5 id="创建映射文件"><a href="#创建映射文件" class="headerlink" title="创建映射文件"></a>创建映射文件</h5><p>&nbsp;&nbsp;实体类本身没有持久化能力，而Hibernate需要知道需要知道该实体类映射数据库Hibernate哪个表，以及类中哪个字段，都需要映射文件中配置,在与该类同级下创建一个xxx(与持久化类名一致).hbm.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC
+    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+   &lt;!-- 配置表与实体对象的关系 --&gt;
+   &lt;!-- package属性:填写一个包名.在元素内部凡是需要书写完整类名的属性,可以直接写简答类名了. --&gt;
+&lt;hibernate-mapping package=&quot;com.thw.domain&quot; &gt;
+    &lt;!--
+        class元素: 配置实体与表的对应关系的
+            name: 完整类名
+            table:数据库表名
+     --&gt;
+    &lt;class name=&quot;Customer&quot; table=&quot;cst_customer&quot; &gt;
+        &lt;!-- id元素:配置主键映射的属性
+                name: 填写主键对应属性名
+                column(可选): 填写表中的主键列名.默认值:列名会默认使用属性名
+                type(可选):填写列(属性)的类型.hibernate会自动检测实体的属性类型.
+                        每个类型有三种填法: java类型|hibernate类型|数据库类型
+                not-null(可选):配置该属性(列)是否不能为空. 默认值:false
+                length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
+         --&gt;
+        &lt;id name=&quot;cust_id&quot;  &gt;
+            &lt;!-- generator:主键生成策略 --&gt;
+            &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;
+        &lt;/id&gt;
+        &lt;!-- property元素:除id之外的普通属性映射
+                name: 填写属性名
+                column(可选): 填写列名
+                type(可选):填写列(属性)的类型.hibernate会自动检测实体的属性类型.
+                        每个类型有三种填法: java类型|hibernate类型|数据库类型
+                not-null(可选):配置该属性(列)是否不能为空. 默认值:false
+                length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
+         --&gt;
+        &lt;property name=&quot;cust_name&quot; column=&quot;cust_name&quot; &gt;
+            &lt;!--  &lt;column name=&quot;cust_name&quot; sql-type=&quot;varchar&quot; &gt;&lt;/column&gt; --&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;cust_source&quot; column=&quot;cust_source&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_industry&quot; column=&quot;cust_industry&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_level&quot; column=&quot;cust_level&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_linkman&quot; column=&quot;cust_linkman&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_phone&quot; column=&quot;cust_phone&quot; &gt;&lt;/property&gt;
+        &lt;property name=&quot;cust_mobile&quot; column=&quot;cust_mobile&quot; &gt;&lt;/property&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre><h5 id="创建Hibernate核心配置文件"><a href="#创建Hibernate核心配置文件" class="headerlink" title="创建Hibernate核心配置文件"></a>创建Hibernate核心配置文件</h5><h6 id="Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值-在项目的src下面创建一个hibernate-cfg-xml"><a href="#Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值-在项目的src下面创建一个hibernate-cfg-xml" class="headerlink" title="Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml"></a>Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml</h6><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC
+    &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;
+&lt;hibernate-configuration&gt;
+    &lt;session-factory&gt;
+
+        &lt;!--
+        #hibernate.dialect org.hibernate.dialect.MySQLDialect
+        #hibernate.dialect org.hibernate.dialect.MySQLInnoDBDialect
+        #hibernate.dialect org.hibernate.dialect.MySQLMyISAMDialect
+        #hibernate.connection.driver_class com.mysql.jdbc.Driver
+        #hibernate.connection.url jdbc:mysql:///test
+        #hibernate.connection.username gavin
+        #hibernate.connection.password
+         --&gt;
+         &lt;!-- 数据库驱动 --&gt;
+        &lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
+         &lt;!-- 数据库url --&gt;
+        &lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///xxx&lt;/property&gt;
+         &lt;!-- 数据库连接用户名 --&gt;
+        &lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;
+         &lt;!-- 数据库连接密码 --&gt;
+        &lt;property name=&quot;hibernate.connection.password&quot;&gt;xxx&lt;/property&gt;
+        &lt;!-- 数据库方言
+            不同的数据库中,sql语法略有区别. 指定方言可以让hibernate框架在生成sql语句时.针对数据库的方言生成.
+            sql99标准: DDL 定义语言  库表的增删改查
+                      DCL 控制语言  事务 权限
+                      DML 操纵语言  增删改查
+            注意: MYSQL在选择方言时,请选择最短的方言.
+         --&gt;
+        &lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5InnoDBDialect&lt;/property&gt;
+
+
+        &lt;!-- #hibernate.show_sql true
+             #hibernate.format_sql true
+        --&gt;
+        &lt;!-- 将hibernate生成的sql语句打印到控制台 --&gt;
+        &lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
+        &lt;!-- 将hibernate生成的sql语句格式化(语法缩进) --&gt;
+        &lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
+        &lt;!--
+        ## auto schema export  自动导出表结构. 自动建表
+        #hibernate.hbm2ddl.auto create        自动建表.每次框架运行都会创建新的表.以前表将会被覆盖,表数据会丢失.(开发环境中测试使用)
+        #hibernate.hbm2ddl.auto create-drop 自动建表.每次框架运行结束都会将所有表删除.(开发环境中测试使用)
+        #hibernate.hbm2ddl.auto update(推荐使用) 自动生成表.如果已经存在不会再生成.如果表有变动.自动更新表(不会删除任何数据).
+        #hibernate.hbm2ddl.auto validate    校验.不自动生成表.每次启动会校验数据库中表是否正确.校验失败.
+         --&gt;
+        &lt;property name=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/property&gt;
+        &lt;!-- 引入orm元数据
+            路径书写: 填写src下的路径
+         --&gt;
+        &lt;mapping resource=&quot;com/thw/domain/Customer.hbm.xml&quot; /&gt;
+
+    &lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre><code>import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.junit.Test;
+
+import com.thw.domain.Customer;
+
+public class hibernateTest {
+    @Test
+    //保存客户
+    public void fun1(){
+            //启动,加载配置信息,Configuration conf = new Configuration().configure()为默认去src下面找到hibernate.cfg.xml加载也可以自定义 Configuration().configure(&quot;文件路径&quot;)加载.
+
+        Configuration conf = new Configuration().configure();
+
+        //创建一个SessionFactory工厂
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+        //获得Session实例
+        Session session = sessionFactory.openSession();
+        //事务操作
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+        Customer c = new Customer();
+        c.setCust_name(&quot;google公司&quot;);
+
+        session.save(c);//执行保存
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+    }
+    @Test
+    //查找客户
+    public void fun2(){
+        Configuration conf = new Configuration().configure();
+
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+        Customer customer = session.get(Customer.class, 1L);
+        System.out.println(customer);
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+    }
+    @Test
+    //更新客户
+    public void fun3(){
+        Configuration conf = new Configuration().configure();
+
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+
+        Customer customer = session.get(Customer.class, 1L);
+        customer.setCust_name(&quot;百度公司&quot;);
+        session.update(customer);
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+        System.out.println(customer);
+    }
+    @Test
+    //删除客户
+    public void fun4(){
+        Configuration conf = new Configuration().configure();
+
+        SessionFactory sessionFactory = conf.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        Transaction tx = session.beginTransaction();
+        //----------------------------------------------
+
+        Customer customer = session.get(Customer.class, 1L);
+        session.delete(customer);
+
+        //----------------------------------------------
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+        System.out.println(customer);
+    }
+}
+</code></pre><h2 id="一些名词解释"><a href="#一些名词解释" class="headerlink" title="一些名词解释"></a>一些名词解释</h2><h6 id="SessionFactory-Session工厂对象"><a href="#SessionFactory-Session工厂对象" class="headerlink" title="SessionFactory:Session工厂对象"></a>SessionFactory:Session工厂对象</h6><p>&nbsp;&nbsp;SessionFactory负责Hibernate初始化和建立Session对象,它充当数据储存代理，并负责创建Session对象。创建用了工程对象模式。<font color="red">需注意的是，SessionFactory并不是一个轻量级的</font>，一般情况下一个项目下只需要一个SessionFactory，当需要操作多个数据库时，可以为每个数据库指定一个SessionFactory。<br><br>&nbsp;&nbsp;SessionFactory在Hibernate中起了一个缓冲作用，Hibernate可以自动生成SQL语句，映射数据和某些可重复利用的数据放在这个缓冲区。同时它还保存数据库配置所有映射关系，维护当前二级缓存。<br><br>&nbsp;&nbsp;SessionFactory具有以下特点：</p>
+<ul>
+<li>它是线程安全</li>
+<li><p>它是重量级<br>SessionFactory维护着一个连接池,若使用第三方连接池C3P0,那么需要手动配置</p>
+<pre><code>&lt;!--配置C3P0--&gt;
+&lt;property name=&quot;hibernate.connection.provider_class&quot;&gt;org.hibernate.connection.C3P0ConnectionProvider&lt;/property&gt;
+&lt;!--连接池可用数据库连接最大数--&gt;
+&lt;property name=&quot;hibernate.c3p0.max_size&quot;&gt;20&lt;/property&gt;
+&lt;!--连接池可用数据库连接最小数--&gt;
+&lt;property name=&quot;hibernate.c3p0.min_size&quot;&gt;5&lt;/property&gt;
+&lt;!--连接过期时间--&gt;
+&lt;property name=&quot;hibernate.c3p0.timeout&quot;&gt;120&lt;/property&gt;
+&lt;!--每3000s去检查空闲连接--&gt;
+&lt;property name=&quot;hibernate.c3p0.idle_test_period&quot;&gt;3000&lt;/property&gt;
+</code></pre><h6 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h6><p>&nbsp;&nbsp;Session负责执行被持久化对象的CRUD操作（该操作完成与数据库的交流，包含许多sql语句）,只有在Session管理下可以进行持久化操作,它有两种方式创建实例:</p>
+</li>
+<li><p>Session session = sessionFactory.openSession();</p>
+</li>
+<li>Session session = sessionFactory.getCurrentSession();</li>
+</ul>
+<p>&nbsp;&nbsp;openSession会获取一个SessionFactory创建的Session实例，需要手动调用close()关闭,而getCurrentSession创建的Session实例会绑定在当前线程，提交或回滚事务自动关闭。<br><br>&nbsp;&nbsp;Session并不是线程安全，多个并发线程同时操作一个Session实例，可能导致Session(方法内部定义就不会出现问题)，所以应该避免多线程共享Session实例，而且它的创建与销毁并不需要消耗太多资源。它还有个一缓存，即Hibernate一级缓存，这个缓存主要存放当前工作单元加载的对象。<br>session提供了大量方法</p>
+<ul>
+<li>save(),update(),和saveOrUpdate()方法，用于增加和修改对象</li>
+<li>delete()删除对象</li>
+<li>get()和load()，根据主键查询</li>
+<li>createQuery()和creatSQLQuery()数据库操作对象</li>
+<li>createCriteria()条件查询</li>
+</ul>
+<h6 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h6><p>&nbsp;&nbsp;用于管理事务，它常用有两个方法</p>
+<ul>
+<li>commit(),提交session实例</li>
+<li>rollback(),撤销事务操作</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2018/05/05/Hibernate one/">Hibernate one</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 tanhw 的个人博客">tanhw</a></p>
+        <p><span>发布时间:</span>2018年05月05日 - 19时42分</p>
+        <p><span>最后更新:</span>2018年05月05日 - 20时19分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/05/05/Hibernate one/" title="Hibernate one">http://yoursite.com/2018/05/05/Hibernate one/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/05/05/Hibernate one/　　作者: tanhw" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2018/05/23/java i++,++i /" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          java i++,++i
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2018/05/04/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境搭建"><span class="toc-number">2.</span> <span class="toc-text">环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#导包"><span class="toc-number">2.0.1.</span> <span class="toc-text">导包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建数据库和表"><span class="toc-number">2.0.2.</span> <span class="toc-text">创建数据库和表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置文件的配置"><span class="toc-number">2.0.3.</span> <span class="toc-text">配置文件的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#导入xml约束dtd"><span class="toc-number">2.0.3.1.</span> <span class="toc-text">导入xml约束dtd</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建映射文件"><span class="toc-number">2.0.3.2.</span> <span class="toc-text">创建映射文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建Hibernate核心配置文件"><span class="toc-number">2.0.3.3.</span> <span class="toc-text">创建Hibernate核心配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值-在项目的src下面创建一个hibernate-cfg-xml"><span class="toc-number">2.0.3.3.1.</span> <span class="toc-text">Hibernate映射文件反映了持久化类和数据库表映射信息，而Hibernate配置文件配置数据库连接和Hibernate运行时所需要各个属性值,在项目的src下面创建一个hibernate.cfg.xml</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">3.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些名词解释"><span class="toc-number">4.</span> <span class="toc-text">一些名词解释</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SessionFactory-Session工厂对象"><span class="toc-number">4.0.0.0.1.</span> <span class="toc-text">SessionFactory:Session工厂对象</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Session"><span class="toc-number">4.0.0.0.2.</span> <span class="toc-text">Session</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Transaction"><span class="toc-number">4.0.0.0.3.</span> <span class="toc-text">Transaction</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2018/05/23/java i++,++i /" title="上一篇: java i++,++i">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2018/05/04/hello-world/" title="下一篇: Hello World">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/13/Spring Schedule/">Spring Schedule</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/30/apache-fileupload/">apache fileupload</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/23/java i++,++i /">java i++,++i</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/Hibernate one/">Hibernate one</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/04/hello-world/">Hello World</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 tanhw
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
