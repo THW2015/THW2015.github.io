@@ -1,7 +1,7 @@
 username = "THW2015" # GitHub 用户名
 new_token = "b7978767a5a841dbb2cac98a62dedf85c7bf0cb0"  # GitHub Token
 repo_name = "THW2015.github.io" # 存放 issues
-sitemap_url = "/sitemap.xml" # sitemap
+sitemap_url = "https://thw2015.github.io/sitemap.xml" # sitemap
 kind = "gitment" # "Gitalk" or "gitment"
 
 require 'open-uri'
