@@ -460,16 +460,21 @@ public class CloseOrderTask {
 
 
     
-        <section class="changyan" id="comments">
-  <!--<div id="uyan_frame"></div>-->
-  <div id="SOHUCS"></div>
-  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
-  <script type="text/javascript">
-    window.changyan.api.config({
-      appid: 'cytPDR8h5',
-      conf: 'ddf483adc32153de5ba46b2c917ca896'
-    });
-  </script>
+        <section id="comments">
+<link rel="stylesheet" href="/css/gitment.min.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'Spring Schedule', // 可选。默认为 location.href
+  owner: 'THW2015',
+  repo: 'THW2015.github.io',
+  oauth: {
+    client_id: '48557c4b4cc3c247f96e',
+    client_secret: '42627f017c5331753458ebd4afa0ba114c643d69',
+  },
+})
+gitment.render('comments')
+</script>
 </section>
     
 
