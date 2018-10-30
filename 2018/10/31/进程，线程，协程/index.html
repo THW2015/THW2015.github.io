@@ -7,23 +7,20 @@
   
   
   
-  <title>apache fileupload | tanhw&#39;s Blog</title>
+  <title>进程，线程，协程 | tanhw&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;nbsp;&amp;nbsp;apache fileupload是一个文件上传包,这里简单的介绍一下他的使用方法导入包">
-<meta name="keywords" content="apache">
+  <meta name="description" content="##什么是进程&amp;nbsp;&amp;nbsp;进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位。每个进程都有自己的独立内存空间，不同进程通过进程间通信来通信。由于进程比较重量，占据独立的内存，所以上下文进程间的切换开销（栈、寄存器、虚拟内存、文件句柄等）比较大，但相对比较稳定安全。  ##什么是线程&amp;nbsp;&amp;nbsp;线程是进程的一个实体,是CP">
+<meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="apache fileupload">
-<meta property="og:url" content="https://thw2015.github.io/2018/05/30/apache-fileupload/index.html">
+<meta property="og:title" content="进程，线程，协程">
+<meta property="og:url" content="https://thw2015.github.io/2018/10/31/进程，线程，协程/index.html">
 <meta property="og:site_name" content="tanhw&#39;s Blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;apache fileupload是一个文件上传包,这里简单的介绍一下他的使用方法导入包">
+<meta property="og:description" content="##什么是进程&amp;nbsp;&amp;nbsp;进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位。每个进程都有自己的独立内存空间，不同进程通过进程间通信来通信。由于进程比较重量，占据独立的内存，所以上下文进程间的切换开销（栈、寄存器、虚拟内存、文件句柄等）比较大，但相对比较稳定安全。  ##什么是线程&amp;nbsp;&amp;nbsp;线程是进程的一个实体,是CP">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thw2015.github.io/2018/05/30/apache-fileupload/1.png">
-<meta property="og:image" content="https://thw2015.github.io/2018/05/30/apache-fileupload/2.png">
-<meta property="og:updated_time" content="2018-09-23T15:21:14.332Z">
+<meta property="og:updated_time" content="2018-10-30T16:31:52.868Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="apache fileupload">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;apache fileupload是一个文件上传包,这里简单的介绍一下他的使用方法导入包">
-<meta name="twitter:image" content="https://thw2015.github.io/2018/05/30/apache-fileupload/1.png">
+<meta name="twitter:title" content="进程，线程，协程">
+<meta name="twitter:description" content="##什么是进程&amp;nbsp;&amp;nbsp;进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位。每个进程都有自己的独立内存空间，不同进程通过进程间通信来通信。由于进程比较重量，占据独立的内存，所以上下文进程间的切换开销（栈、寄存器、虚拟内存、文件句柄等）比较大，但相对比较稳定安全。  ##什么是线程&amp;nbsp;&amp;nbsp;线程是进程的一个实体,是CP">
   
     <link rel="alternative" href="/atom.xml" title="tanhw&#39;s Blog" type="application/atom+xml">
   
@@ -220,11 +217,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-apache-fileupload" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-进程，线程，协程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/05/30/apache-fileupload/" class="article-date">
-      <time datetime="2018-05-30T07:20:23.000Z" itemprop="datePublished">2018-05-30</time>
+      <a  href="/2018/10/31/进程，线程，协程/" class="article-date">
+      <time datetime="2018-10-30T16:28:22.000Z" itemprop="datePublished">2018-10-31</time>
 </a>
 
     </div>
@@ -238,7 +235,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      apache fileupload
+      进程，线程，协程
     </h1>
   
 
@@ -254,7 +251,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -264,114 +261,28 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&nbsp;&nbsp;apache fileupload是一个文件上传包,这里简单的介绍一下他的使用方法导入包<br><a id="more"></a><br>    <img src="/2018/05/30/apache-fileupload/1.png" alt="1.png"><br>    &nbsp;&nbsp;由于fileupload操作有大量的io操作，所以导入一个IOUtil包方便开发<br>    <img src="/2018/05/30/apache-fileupload/2.png" alt="2.png"><br>    &nbsp;&nbsp;导入这两个包后就可以就行文件上传的小demo<br>    &nbsp;&nbsp;首先页面代码</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;title&gt;Insert title here&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;form action=&quot;/fileup/fileupload&quot; method=&quot;post`&quot; enctype=&quot;multipart/form-data&quot;&gt;
-        &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
-        &lt;input type=&quot;file&quot; name=&quot;filename&quot;&gt;&lt;br&gt;
-        &lt;input type=&quot;submit&quot; value=&quot;上传文件&quot;&gt;
-    &lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>&nbsp;&nbsp;这里<font color="red">enctype=”multipart/form-data”</font>在使用包含文件上传控件的表单时，必须使用该值。然后进行servlet的编写</p>
-<pre><code>import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.IOUtils;
-
-public class FileuploadServlet2 extends HttpServlet {
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        try {
-
-
-            //作用：设置缓存文件的大小  设置临时文件存储的位置
-            String path_temp = this.getServletContext().getRealPath(&quot;temp&quot;);
-            //1、创建磁盘文件项工厂
-            //DiskFileItemFactory factory = new DiskFileItemFactory(1024*1024, new File(path_temp));
-            DiskFileItemFactory factory = new DiskFileItemFactory();
-            factory.setSizeThreshold(1024*1024);
-            factory.setRepository(new File(path_temp));
-            //2、创建文件上传的核心类
-            ServletFileUpload upload = new ServletFileUpload(factory);
-            //设置上传文件的名称的编码
-            upload.setHeaderEncoding(&quot;UTF-8&quot;);
-
-            //ServletFileUpload的API
-            boolean multipartContent = upload.isMultipartContent(request);//判断表单是否是文件上传的表单
-            if(multipartContent){
-                //是文件上传的表单
-                //***解析request获得文件项集合
-                List&lt;FileItem&gt; parseRequest = upload.parseRequest(request);
-                if(parseRequest!=null){
-                    for(FileItem item : parseRequest){
-                        //判断是不是一个普通表单项
-                        boolean formField = item.isFormField();
-                        if(formField){
-                            //username=zhangsan
-                            String fieldName = item.getFieldName();
-                            String fieldValue = item.getString(&quot;UTF-8&quot;);//对普通表单项的内容进行编码
-
-                            System.out.println(fieldName+&quot;----&quot;+fieldValue);
-
-                            //当表单是enctype=&quot;multipart/form-data&quot;时 request.getParameter相关的方法
-                            //String parameter = request.getParameter(&quot;username&quot;);
-
-                        }else{
-                            //文件上传项
-                            //文件的名
-                            String fileName = item.getName();
-                            //获得上传文件的内容
-                            InputStream in = item.getInputStream();
-                            String path_store = this.getServletContext().getRealPath(&quot;upload&quot;);
-                            OutputStream out = new FileOutputStream(path_store+&quot;/&quot;+fileName);
-                            IOUtils.copy(in, out);
-                            in.close();
-                            out.close();
-
-                            //删除临时文件
-                            item.delete();
-
-                        }
-                    }
-                }
-
-            }else{
-                //不是文件上传表单
-                //使用原始的表单数据的获得方式 request.getParameter();
-            }
-        } catch (FileUploadException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
-}
-</code></pre><p>最后上传后只需在你的Tomcat中你所指定的文件夹下就能找到你上传的文件。</p>
+        <p>##什么是进程<br>&nbsp;&nbsp;进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位。每个进程都有自己的独立内存空间，不同进程通过进程间通信来通信。由于进程比较重量，占据独立的内存，所以上下文进程间的切换开销（栈、寄存器、虚拟内存、文件句柄等）比较大，但相对比较稳定安全。</p>
+<hr>
+<p>##什么是线程<br>&nbsp;&nbsp;线程是进程的一个实体,是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位.线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。线程间通信主要通过共享内存，上下文切换很快，资源开销较少，但相比进程不够稳定容易丢失数据。</p>
+<hr>
+<p>##线程与进程的比较</p>
+<ol>
+<li>同一个进程中的线程共享同一内存空间，但是进程之间是独立的。</li>
+<li>同一个进程中的所有线程的数据是共享的（进程通讯），进程之间的数据是独立的。</li>
+<li>对主线程的修改可能会影响其他线程的行为，但是父进程的修改（除了删除以外）不会影响其他子进程。</li>
+<li>一个进程至少有一个进程。</li>
+<li>同一个进程的线程之间可以直接通信，但是进程之间的交流需要借助中间代理来实现。</li>
+<li>创建新的线程很容易，但是创建新的进程需要对父进程做一次复制。</li>
+<li>一个线程可以操作同一进程的其他线程，但是进程只能操作其子进程。</li>
+<li>线程启动速度快，进程启动速度慢（但是两者运行速度没有可比性）。<br>我们用更加直观的表格去展示<br>|对比维度|多进程|多线程|总结|<br>|:—:|:—|:—|:—:|<br>|数据共享、同步|数据共享复杂，需要用IPC；数据是分开的，同步简单|因为共享进程数据，数据共享简单，但也是因为这个原因导致同步复杂|各有优势|<br>|内存、CPU|占用内存多，切换复杂，CPU利用率低|占用内存少，切换简单，CPU利用率高|线程占优|<br>|创建销毁、切换|创建销毁、切换复杂，速度慢|创建销毁、切换简单，速度很快|线程占优|<br>|编程、调试|编程简单，调试简单|编程复杂，调试复杂|进程占优|<br>|可靠性|进程间不会互相影响|一个线程挂掉将导致整个进程挂掉|进程占优|<br>|分布式|适应于多核、多机分布式；如果一台机器不够，扩展到多台机器比较简单|适应于多核分布式|进程占优|</li>
+</ol>
+<hr>
+<p>##进程与线程使用场景总结</p>
+<ul>
+<li>进程多用于计算密集型</li>
+<li>线程多用于IO密集型</li>
+</ul>
+<p>##协程<br>&nbsp;&nbsp;协程又称微线程,是一种用户态的轻量级线程，协程的调度完全由用户控制。协程不是被操作系统内核所管理，而完全是由程序所控制,协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈，直接操作栈则基本没有内核切换的开销，可以不加锁的访问全局变量，所以上下文的切换非常快。</p>
 
       
     </div>
@@ -380,13 +291,13 @@ public class FileuploadServlet2 extends HttpServlet {
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2018/05/30/apache-fileupload/">apache fileupload</a></p>
+        <p><span>本文标题:</span><a  href="/2018/10/31/进程，线程，协程/">进程，线程，协程</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 tanhw 的个人博客">tanhw</a></p>
-        <p><span>发布时间:</span>2018年05月30日 - 15时20分</p>
-        <p><span>最后更新:</span>2018年09月23日 - 23时21分</p>
+        <p><span>发布时间:</span>2018年10月31日 - 00时28分</p>
+        <p><span>最后更新:</span>2018年10月31日 - 00时31分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/05/30/apache-fileupload/" title="apache fileupload">https://thw2015.github.io/2018/05/30/apache-fileupload/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://thw2015.github.io/2018/05/30/apache-fileupload/　　作者: tanhw" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/31/进程，线程，协程/" title="进程，线程，协程">https://thw2015.github.io/2018/10/31/进程，线程，协程/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://thw2015.github.io/2018/10/31/进程，线程，协程/　　作者: tanhw" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -397,18 +308,9 @@ public class FileuploadServlet2 extends HttpServlet {
 
 <nav id="article-nav">
   
-    <a  href="/2018/09/13/Spring Schedule/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Spring Schedule
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2018/05/23/java i++,++i /" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java i++,++i</div>
+    <a  href="/2018/09/13/Spring Schedule/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring Schedule</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -481,7 +383,7 @@ public class FileuploadServlet2 extends HttpServlet {
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: 'apache fileupload', // 可选。默认为 location.href
+  id: '进程，线程，协程', // 可选。默认为 location.href
   owner: 'THW2015',
   repo: 'THW2015.github.io',
   oauth: {
@@ -498,13 +400,11 @@ gitment.render('comments')
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2018/09/13/Spring Schedule/" title="上一篇: Spring Schedule">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2018/05/23/java i++,++i /" title="下一篇: java i++,++i">
+            <a  href="/2018/09/13/Spring Schedule/" title="下一篇: Spring Schedule">
                 <i class="fa fa-angle-right"></i>
             </a>
         
