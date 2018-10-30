@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="tanhw&#39;s Blog">
 <meta property="og:description" content="什么是进程&amp;nbsp;&amp;nbsp;进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位。每个进程都有自己的独立内存空间，不同进程通过进程间通信来通信。由于进程比较重量，占据独立的内存，所以上下文进程间的切换开销（栈、寄存器、虚拟内存、文件句柄等）比较大，但相对比较稳定安全。  什么是线程&amp;nbsp;&amp;nbsp;线程是进程的一个实体,是CPU调度和">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-30T16:36:13.997Z">
+<meta property="og:updated_time" content="2018-10-30T16:38:56.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程，线程，协程">
 <meta name="twitter:description" content="什么是进程&amp;nbsp;&amp;nbsp;进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位。每个进程都有自己的独立内存空间，不同进程通过进程间通信来通信。由于进程比较重量，占据独立的内存，所以上下文进程间的切换开销（栈、寄存器、虚拟内存、文件句柄等）比较大，但相对比较稳定安全。  什么是线程&amp;nbsp;&amp;nbsp;线程是进程的一个实体,是CPU调度和">
@@ -265,6 +265,7 @@
 <hr>
 <h2 id="什么是线程"><a href="#什么是线程" class="headerlink" title="什么是线程"></a>什么是线程</h2><p>&nbsp;&nbsp;线程是进程的一个实体,是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位.线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。线程间通信主要通过共享内存，上下文切换很快，资源开销较少，但相比进程不够稳定容易丢失数据。</p>
 <hr>
+<a id="more"></a>
 <h2 id="线程与进程的比较"><a href="#线程与进程的比较" class="headerlink" title="线程与进程的比较"></a>线程与进程的比较</h2><ol>
 <li>同一个进程中的线程共享同一内存空间，但是进程之间是独立的。</li>
 <li>同一个进程中的所有线程的数据是共享的（进程通讯），进程之间的数据是独立的。</li>
@@ -340,7 +341,7 @@
         <p><span>本文标题:</span><a  href="/2018/10/31/进程，线程，协程/">进程，线程，协程</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 tanhw 的个人博客">tanhw</a></p>
         <p><span>发布时间:</span>2018年10月31日 - 00时28分</p>
-        <p><span>最后更新:</span>2018年10月31日 - 00时36分</p>
+        <p><span>最后更新:</span>2018年10月31日 - 00时38分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/31/进程，线程，协程/" title="进程，线程，协程">https://thw2015.github.io/2018/10/31/进程，线程，协程/</a>
             <span class="copy-path" data-clipboard-text="原文: https://thw2015.github.io/2018/10/31/进程，线程，协程/　　作者: tanhw" title=""></span>
